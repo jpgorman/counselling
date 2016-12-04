@@ -1,10 +1,7 @@
 import React from "react"
-import {NavLink} from "../components"
 
-export function Home(props) {
+export function Home() {
     return (
-      <div>
         <div>Home</div>
-      </div>
     )
 }

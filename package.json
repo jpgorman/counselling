@@ -6,19 +6,27 @@
   "scripts": {
     "test": "mocha",
     "serve": "resources/scripts/serve.sh",
-    "build": "resources/scripts/build.sh"
+    "build": "npm run clean && resources/scripts/build.sh",
+    "clean": "rm -rf dist"
   },
   "author": "Jean-Paul Gorman",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer-core": "^6.0.1",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
+    "css-loader": "^0.26.1",
     "eslint": "^3.11.1",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.7.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "postcss-loader": "^1.2.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
   },

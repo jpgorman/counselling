@@ -1,17 +1,16 @@
-import React from "react"
-import {IndexLink} from "react-router"
-import {NavLink} from "../components"
+import React, {PropTypes} from "react"
+import {NavBar, Container} from "../components"
 
 export function App(props){
-    return (
-      <div>
-        <h1>Some Header</h1>
-        <ul role="nav">
-          <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
-          <li><NavLink to="/about">About</NavLink></li>
-          <li><NavLink to="/training">Training</NavLink></li>
-        </ul>
-        {props.children}
-      </div>
-    )
+  return (
+    <Container>
+      <h1>Some Header</h1>
+      <NavBar />
+      {props.children}
+    </Container>
+  )
+}
+
+App.PropTypes = {
+  children: PropTypes.any,
 }

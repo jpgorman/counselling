@@ -4,7 +4,11 @@ var webpack = require('webpack');
 module.exports = {
   entry: './src/main.js',
   devtool: 'source-map',
-  output: { path: __dirname, filename: 'bundle.js' },
+  output: {
+    path: path.join(__dirname, '../../dist'),
+    filename: 'bundle.js',
+    publicPath: '/',
+  },
   module: {
     loaders: [
       {

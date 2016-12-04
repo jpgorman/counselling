@@ -1,10 +1,10 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { Router, Route, hashHistory, IndexRoute } from "react-router"
+import { Router, Route, browserHistory, IndexRoute } from "react-router"
 import {App, Home, About, Training} from "./pages/"
 
 ReactDOM.render((
-  <Router history={hashHistory}>
+  <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       {/* add the routes here */}

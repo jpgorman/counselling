@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "serve": "resources/scripts/serve.sh"
+    "serve": "resources/scripts/serve.sh",
+    "build": "resources/scripts/build.sh"
   },
   "author": "Jean-Paul Gorman",
   "license": "MIT",

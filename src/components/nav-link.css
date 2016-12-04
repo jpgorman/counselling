@@ -1,0 +1,11 @@
+.wrapper {
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+  line-height: 2.6em;
+}
+
+.active {
+  color: getcolor(primary);
+  border-bottom: 1px solid getcolor(noir, 0.2);
+}

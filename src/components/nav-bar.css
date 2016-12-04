@@ -1,0 +1,21 @@
+.wrapper {
+  margin-top: baseunits(8);
+  text-align: center;
+  width: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  background: getcolor(lift);
+  padding: 0 baseunits(4);
+}
+
+.item {
+  list-style: none;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.item + .item {
+  margin-left: baseunits(4);
+}

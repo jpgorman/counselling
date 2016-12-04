@@ -1,6 +1,12 @@
-var path = require("path");
-var webpack = require("webpack");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var path = require("path")
+var webpack = require("webpack")
+var CopyStaticAssetsPlugin = require("copy-webpack-plugin")
+var ExtractTextPlugin = require("extract-text-webpack-plugin")
+var theme = require("./theme")
+var cssFunctions = require("../postcss-functions")(theme)
+var postcssFunctions = require("postcss-functions")
+var cssnext = require("postcss-cssnext")
+
 
 module.exports = {
   entry: "./src/main.js",
@@ -10,11 +16,12 @@ module.exports = {
     filename: "bundle.js",
     publicPath: "/",
   },
+
   module: {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader")
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader?sourceMap=inline")
       },
       {
         test: /.jsx?$/,
@@ -27,11 +34,28 @@ module.exports = {
     ]
   },
 
-  postcss: [
-    require("autoprefixer-core"),
-  ],
+  resolve: {
+    alias: {
+      "theme": path.resolve(__dirname, "./theme/index.js")
+    }
+  },
+
+  postcss: function () {
+    return [
+      postcssFunctions({
+        functions: cssFunctions
+      }),
+      cssnext,
+    ]
+  },
 
   plugins: [
-    new ExtractTextPlugin('style.css', { allChunks: true }),
+    new CopyStaticAssetsPlugin([
+      {
+        from: path.normalize(__dirname + "/./theme/assets"),
+        to: "assets",
+      },
+    ]),
+    new ExtractTextPlugin("style.css", { allChunks: true }),
   ]
 }

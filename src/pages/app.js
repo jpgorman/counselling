@@ -1,10 +1,10 @@
 import React, {PropTypes} from "react"
-import {NavBar, Container} from "../components"
+import {NavBar, Container, Banner} from "../components"
 
 export function App(props){
   return (
     <Container>
-      <h1>Some Header</h1>
+      <Banner />
       <NavBar />
       {props.children}
     </Container>

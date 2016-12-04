@@ -1,0 +1,6 @@
+.wrapper {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  background: linear-gradient(0deg, transparent 45%, getcolor(noir, 0.1) 45%, getcolor(noir, 0.1) 51%, transparent 51%);
+}

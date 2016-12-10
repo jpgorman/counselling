@@ -1,12 +1,25 @@
-@custom-media --viewport-medium (min-width: 1024px);
-
-@media (--viewport-medium) {
+@media (getbreakpoint(desktop-up)) {
   .wrapper {
     margin: 80px;
     border: 2px solid getcolor(noir, 0.2);
   }
 }
 
-.wrapper {
-  padding: 100px 100px 0;
+@media (getbreakpoint(desktop-up)) {
+  .wrapper {
+    padding: 100px 100px 0;
+  }
+}
+
+@media (getbreakpoint(tablet-portrait-up)) {
+  .wrapper {
+    padding: baseunits(5) baseunits(5) 0;
+  }
+}
+
+@media (getbreakpoint(phone-only)) {
+  .wrapper {
+    margin-top: baseunits(10);
+    padding: 0 baseunits(2);
+  }
 }

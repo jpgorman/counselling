@@ -5,7 +5,20 @@
   line-height: 2.6em;
 }
 
+@media (getbreakpoint(phone-only)) {
+  .wrapper {
+    display: block;
+    width: 100%;
+  }
+}
+
 .active {
   color: getcolor(primary);
   border-bottom: 1px solid getcolor(noir, 0.2);
+}
+
+@media (getbreakpoint(phone-only)) {
+  .active {
+    border: none;
+  }
 }

@@ -1,0 +1,7 @@
+.regular {
+  font: gettypography(regular);
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-style: normal;
+}

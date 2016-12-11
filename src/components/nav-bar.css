@@ -1,5 +1,6 @@
 .wrapper {
   margin-top: baseunits(8);
+  margin-bottom: baseunits(8);
   text-align: center;
   width: 100%;
 }
@@ -11,8 +12,10 @@
     top: 0;
     left: 0;
     right: 0;
-    transform: translateY(-100%);
+    transform: translateY(-101%);
     transition: transform 0.2s ease-in;
+    width: auto;
+    padding: 0 baseunits(2);
   }
   .wrapperActive {
     transform: none;
@@ -21,15 +24,8 @@
 
 .container {
   background: getcolor(lift);
-  margin: 0 auto;
-  padding: 0 baseunits(4);
-}
-
-@media (getbreakpoint(phone-only)) {
-  .container {
-    padding: 0;
-    margin: 0;
-  }
+  padding: 0;
+  margin: 0;
 }
 
 .item {
@@ -63,6 +59,7 @@
   padding: baseunits(1) 0;
   position: absolute;
   top: 100%;
+  cursor: pointer;
 }
 
 @media (getbreakpoint(phone-only)) {

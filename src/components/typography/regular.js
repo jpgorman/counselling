@@ -1,10 +1,15 @@
 import React, {PropTypes} from "react"
 import styles from "./regular.css"
+import {View} from "../core"
 
 export function Regular(props) {
-  return (<div className={styles.regular}>{props.children}</div>)
+  return (
+    <View className={styles.regular}>
+      {props.children}
+    </View>
+  )
 }
 
-Regular.PropTypes = {
+Regular.propTypes = {
   children: PropTypes.any,
 }

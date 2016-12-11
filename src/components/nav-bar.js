@@ -2,8 +2,35 @@ import React, {PropTypes} from "react"
 import {NavLink} from "./nav-link"
 import {Divider} from "./divider"
 import {Flex, Emphasis} from "./core"
-import {Regular} from "./typography"
+import {Detail} from "./typography"
 import styles from "./nav-bar.css"
+import {menuSpec} from "./menu-spec"
+import {reduce, keys} from "ramda"
+
+
+function buildMenuFromSpec(spec) {
+  return reduce((accum, key) => {
+    const item = spec[key]
+    const routeIndexOnlyProps = item.route === "/" ? {
+      onlyActiveOnIndex: true,
+    } : null
+
+    accum.push(
+      <li className={styles.item}>
+        <Detail>
+          <Emphasis color="detail">
+            <NavLink
+              to={item.route}
+              {...routeIndexOnlyProps}>
+                {item.label}
+            </NavLink>
+          </Emphasis>
+        </Detail>
+      </li>
+    )
+    return accum
+  }, [], keys(spec))
+}
 
 export function NavBar({active, handler}) {
   return (
@@ -12,35 +39,15 @@ export function NavBar({active, handler}) {
       <nav className={`${styles.wrapper} ${active && styles.wrapperActive}`}>
         <Divider>
           <ul role="nav" className={styles.container}>
-            <li className={styles.item}>
-              <Regular>
-                <Emphasis color="detail">
-                  <NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink>
-                </Emphasis>
-              </Regular>
-            </li>
-            <li className={styles.item}>
-              <Regular>
-                <Emphasis color="detail">
-                  <NavLink to="/about">About</NavLink>
-                </Emphasis>
-              </Regular>
-            </li>
-            <li className={styles.item}>
-              <Regular>
-                <Emphasis color="detail">
-                  <NavLink to="/training">Training</NavLink>
-                </Emphasis>
-              </Regular>
-            </li>
+            {buildMenuFromSpec(menuSpec)}
             <li className={`${styles.mobileMenuItem}`}>
-              <Regular>
+              <Detail>
                 <Emphasis color="detail">
                   <NavLink
                     type="anchor"
                     handler={handler}>Menu</NavLink>
                 </Emphasis>
-              </Regular>
+              </Detail>
             </li>
           </ul>
         </Divider>

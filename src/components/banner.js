@@ -1,30 +1,47 @@
 import React from "react"
 import theme from "theme"
 import styles from "./banner.css"
-import {Regular} from "./typography"
+import {Detail} from "./typography"
 import {View, Flex, Emphasis} from "./core"
 
 export function Banner() {
   return (
-    <View>
+    <View className={styles.container}>
       <View className={styles.wrapper}>
         <img src={theme.assets.logo} width="95px" />
       </View>
-      <Flex
-        flexDirection="row"
-        justifyContent="space-between">
-        <Emphasis color="hint">
-          <Regular>Foo</Regular>
-        </Emphasis>
+      <View
+        className={styles.info}>
+        <View
+          className={styles.item}>
+          <Emphasis color="hint">
+            <Detail>Cat Chappell</Detail>
+          </Emphasis>
+        </View>
 
-        <Emphasis color="hint">
-          <Regular>Bar</Regular>
-        </Emphasis>
+        <View
+          className={`${styles.item} ${styles.desktopOnly}`}>
+          <Emphasis color="hint">
+            <Detail>Prof. Dip Counselling</Detail>
+          </Emphasis>
+        </View>
 
-        <Emphasis color="hint">
-          <Regular>Baz</Regular>
-        </Emphasis>
-      </Flex>
+        <View
+          className={`${styles.item} ${styles.desktopOnly}`}>
+          <Emphasis color="hint">
+            <Detail>Registered Member MBACP</Detail>
+          </Emphasis>
+        </View>
+
+
+        <View
+          className={styles.item}>
+          <Emphasis color="hint">
+            <Detail>Bristol</Detail>
+          </Emphasis>
+        </View>
+
+      </View>
     </View>
   )
 }

@@ -1,4 +1,30 @@
+@media (getbreakpoint(phone-only)) {
+  .container {
+    margin-bottom: baseunits(4);
+  }
+}
+
 .wrapper {
   margin: 0 auto baseunits(2);
   text-align: center;
+}
+
+@media (getbreakpoint(phone-only)) {
+  .desktopOnly{
+    display: none;
+  }
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (getbreakpoint(phone-only)) {
+  .info{
+    justify-content: center;
+  }
+  .item + .item{
+    margin-left: baseunits(2);
+  }
 }

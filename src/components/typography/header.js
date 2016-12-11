@@ -1,15 +1,15 @@
 import React, {PropTypes} from "react"
-import styles from "./detail.css"
+import styles from "./header.css"
 import {View} from "../core"
 
-export function Detail(props) {
+export function Header(props) {
   return (
-    <View className={styles.detail}>
+    <View className={styles.regular}>
       {props.children}
     </View>
   )
 }
 
-Detail.propTypes = {
+Header.propTypes = {
   children: PropTypes.any,
 }

@@ -6,7 +6,8 @@ module.exports = function(theme) {
     const defaultFont = R.path(["typography", "default"], theme)
     const family = font.family || defaultFont.family
     const weight = font.weight || defaultFont.weight
+    const lineHeight = font.lineHeight || defaultFont.lineHeight
     const size = font.size || defaultFont.size
-    return weight + " " + size + "px" + family
+    return weight + " " + size + "px/" + lineHeight + family
   }
 }

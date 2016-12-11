@@ -1,6 +1,6 @@
 @media (getbreakpoint(desktop-up)) {
   .wrapper {
-    margin: 80px;
+    margin: baseunits(10);
     border: 2px solid getcolor(noir, 0.2);
   }
 }

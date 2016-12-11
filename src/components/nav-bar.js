@@ -16,7 +16,7 @@ function buildMenuFromSpec(spec) {
     } : null
 
     accum.push(
-      <li className={styles.item}>
+      <li key={item.label} className={styles.item}>
         <Detail>
           <Emphasis color="detail">
             <NavLink

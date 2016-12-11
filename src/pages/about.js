@@ -1,5 +1,5 @@
 import React from "react"
-import {View, Header, Regular, SubHeader, VerticalSpacing} from "../components"
+import {Header, Regular, SubHeader, VerticalSpacing, Divider} from "../components"
 
 export function About() {
   return (
@@ -14,6 +14,7 @@ export function About() {
         <SubHeader>Values</SubHeader>
         <Regular>I am a feminist and am committed to reducing environmental impact where I can; I cycle to all appointments and use a Freephone.</Regular>
       </VerticalSpacing>
+      <Divider />
       <VerticalSpacing unit={3}>
         <Header>Training and experience</Header>
 
@@ -41,6 +42,7 @@ export function About() {
           Panic attacks.
         </Regular>
       </VerticalSpacing>
+      <Divider />
       <VerticalSpacing unit={3}>
         <Header>What will therapy be like?</Header>
         <Regular>I feel that by being an active and impartial listener during therapy I can help you to understand the source of motivations behind actions and behaviours. We can then work together to help you choose to take different actions with this new understanding.</Regular>

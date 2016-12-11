@@ -2,6 +2,7 @@
   margin: 0 auto;
   text-align: center;
   width: 100%;
+  min-height: baseunits(1);
   background-image: linear-gradient(0deg , transparent 50%, getcolor(noir, 0.2) calc(50% + 2px), transparent calc(50% + 2px));
 }
 

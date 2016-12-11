@@ -1,5 +1,4 @@
 import React, {PropTypes} from "react"
-import {map, addIndex} from "ramda"
 import {View} from "../"
 import styles from "./vertical-spacing.css"
 import theme from "theme"
@@ -7,8 +6,7 @@ import postCssFunctions from "../../../resources/postcss-functions"
 const {baseunits} = postCssFunctions(theme)
 
 function addSpacerAfterEach(children, unit) {
-  return addIndex(map)((child, index) => <View key={`${index}-spaceAfter`} style={{marginBottom: unit}}>{child}</View>
-  , children)
+  return React.Children.map(children, (child) => <View key={"spaceAfter"} style={{marginBottom: unit}}>{child}</View>)
 }
 
 export function VerticalSpacing({children, unit}) {

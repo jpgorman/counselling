@@ -1,0 +1,10 @@
+.wrapper {
+  width: 70%;
+  margin: 0 auto;
+}
+
+@media (getbreakpoint(phone-only)) {
+  .wrapper{
+    width: 85%;
+  }
+}

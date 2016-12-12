@@ -25,7 +25,7 @@ module.exports = {
   },
   detail: {
     family: "'Source Sans Pro', Helvetica, Roboto, arial, sans-serif",
-    size: 17,
+    size: 14,
     weight: 300,
     lineHeight: "2em",
   },

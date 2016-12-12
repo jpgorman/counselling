@@ -2,7 +2,7 @@ import React from "react"
 import theme from "theme"
 import styles from "./banner.css"
 import {Detail} from "./typography"
-import {View, Flex, Emphasis} from "./core"
+import {View, Emphasis} from "./core"
 
 export function Banner() {
   return (
@@ -12,12 +12,6 @@ export function Banner() {
       </View>
       <View
         className={styles.info}>
-        <View
-          className={styles.item}>
-          <Emphasis color="hint">
-            <Detail>Cat Chappell</Detail>
-          </Emphasis>
-        </View>
 
         <View
           className={`${styles.item} ${styles.desktopOnly}`}>
@@ -29,7 +23,7 @@ export function Banner() {
         <View
           className={`${styles.item} ${styles.desktopOnly}`}>
           <Emphasis color="hint">
-            <Detail>Registered Member MBACP</Detail>
+            <Detail>Bristol</Detail>
           </Emphasis>
         </View>
 
@@ -37,7 +31,7 @@ export function Banner() {
         <View
           className={styles.item}>
           <Emphasis color="hint">
-            <Detail>Bristol</Detail>
+            <Detail>Registered Member MBACP</Detail>
           </Emphasis>
         </View>
 

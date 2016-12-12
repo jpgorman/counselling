@@ -16,15 +16,30 @@
 }
 
 .info {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item {
+  flex-basis: 33.33%;
+  text-align: center;
+}
+.item:first-child {
+  text-align: left;
+}
+.item:last-child {
+  text-align: right;
+}
+
+@media (getbreakpoint(phone-only)) {
+  .item {
+    flex-basis: auto;
+    margin: 0;
+  }
 }
 
 @media (getbreakpoint(phone-only)) {
   .info{
     justify-content: center;
-  }
-  .item + .item{
-    margin-left: baseunits(2);
   }
 }

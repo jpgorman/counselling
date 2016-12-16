@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react"
 import {NavLink} from "./nav-link"
 import {Divider} from "./divider"
-import {Flex, Emphasis} from "./core"
+import {Flex, Emphasis, Overlay} from "./core"
 import {Detail} from "./typography"
 import styles from "./nav-bar.css"
 import {menuSpec} from "./menu-spec"
@@ -34,9 +34,15 @@ function buildMenuFromSpec(spec,handler) {
 }
 
 export function NavBar({active, handler}) {
+
+  const overlay = active
+    ? <Overlay handler={handler} />
+    : null
+
   return (
     <Flex
       flexDirection="row">
+      {overlay}
       <nav className={`${styles.wrapper} ${active && styles.wrapperActive}`}>
         <Divider>
           <ul role="nav" className={styles.container}>

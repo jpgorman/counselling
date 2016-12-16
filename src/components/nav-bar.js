@@ -8,18 +8,19 @@ import {menuSpec} from "./menu-spec"
 import {reduce, keys} from "ramda"
 
 
-function buildMenuFromSpec(spec) {
+function buildMenuFromSpec(spec,handler) {
   return reduce((accum, key) => {
     const item = spec[key]
-    const routeIndexOnlyProps = item.route === "/" ? {
-      onlyActiveOnIndex: true,
-    } : null
+    const routeIndexOnlyProps = item.route === "/"
+      ? {onlyActiveOnIndex: true}
+      : null
 
     accum.push(
       <li key={item.label} className={styles.item}>
         <Detail>
           <Emphasis color="detail">
             <NavLink
+              handler={handler}
               to={item.route}
               {...routeIndexOnlyProps}>
                 {item.label}
@@ -39,7 +40,7 @@ export function NavBar({active, handler}) {
       <nav className={`${styles.wrapper} ${active && styles.wrapperActive}`}>
         <Divider>
           <ul role="nav" className={styles.container}>
-            {buildMenuFromSpec(menuSpec)}
+            {buildMenuFromSpec(menuSpec, handler)}
             <li className={`${styles.mobileMenuItem}`}>
               <Detail>
                 <Emphasis color="detail">

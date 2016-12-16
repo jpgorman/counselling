@@ -1,5 +1,6 @@
 var path = require("path")
 var webpack = require("webpack")
+var HtmlWebpackPlugin = require("html-webpack-plugin")
 var CopyStaticAssetsPlugin = require("copy-webpack-plugin")
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
 var theme = require("./theme")
@@ -12,7 +13,7 @@ module.exports = {
   entry: "./src/main.js",
   devtool: "cheap-module-source-map",
   output: {
-    path: path.join(__dirname, "../../dist"),
+    path: path.join(__dirname, "/../../dist"),
     filename: "bundle.js",
     publicPath: "/",
   },
@@ -26,7 +27,9 @@ module.exports = {
       {
         test: /.jsx?$/,
         loader: "babel-loader",
-        exclude: /node_modules/,
+        include: [
+          path.resolve("./src/"),
+        ],
         query: {
           presets: ["latest", "react"]
         }
@@ -50,6 +53,10 @@ module.exports = {
   },
 
   plugins: [
+    new HtmlWebpackPlugin({
+      title: "Cat Chappell - Counsellor",
+      template: path.normalize(__dirname + "/./theme/templates/index.ejs"),
+    }),
     new CopyStaticAssetsPlugin([
       {
         from: path.normalize(__dirname + "/./theme/assets"),

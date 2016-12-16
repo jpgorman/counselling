@@ -8,7 +8,7 @@ export function Banner() {
   return (
     <View className={styles.container}>
       <View className={styles.wrapper}>
-        <img src={theme.assets.logo} width="95px" />
+        <img src={`/${theme.assets.logo}`} width="95px" />
       </View>
       <View
         className={styles.info}>

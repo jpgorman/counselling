@@ -9,6 +9,7 @@ const componentMap = (handler) => {
     link: {
       Component: Link,
       overides: {
+        onClick: handler,
         className: styles.wrapper,
         activeClassName: styles.active,
       },

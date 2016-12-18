@@ -8,6 +8,6 @@ module.exports = function(theme) {
     const weight = font.weight || defaultFont.weight
     const lineHeight = font.lineHeight || defaultFont.lineHeight
     const size = font.size || defaultFont.size
-    return weight + " " + size + "px/" + lineHeight + family
+    return weight + " " + size + "px/" + lineHeight + " " + family
   }
 }

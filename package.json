@@ -7,7 +7,8 @@
     "test": "mocha",
     "serve": "resources/scripts/serve.sh",
     "build": "npm run clean && resources/scripts/build.sh",
-    "clean": "rm -rf dist"
+    "postbuild": "babel-node resources/node/server.js",
+    "clean": "rm -rf public"
   },
   "author": "Jean-Paul Gorman",
   "license": "MIT",
@@ -41,6 +42,9 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "open": "0.0.5",
     "ramda": "^0.22.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",

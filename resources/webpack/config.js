@@ -11,10 +11,8 @@ var cssnext = require("postcss-cssnext")
 
 module.exports = {
   entry: "./src/main.js",
-  devtool: "cheap-module-source-map",
   output: {
-    path: path.join(__dirname, "/../../dist"),
-    filename: "bundle.js",
+    path: path.join(__dirname, "/../../public"),
     publicPath: "/",
   },
 

@@ -16,6 +16,7 @@
     transition: transform 0.2s ease-in;
     width: auto;
     padding: 0 baseunits(2);
+    z-index: 1;
   }
   .wrapperActive {
     transform: none;

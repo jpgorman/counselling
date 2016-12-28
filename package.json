@@ -11,7 +11,7 @@
     "serve": "resources/scripts/serve.sh",
     "build": "rm -rf public && webpack --config resources/webpack/prod/config.js --content-base . --history-api-fallback",
     "postinstall": "npm run build",
-    "postbuild": "node resources/node/server.js",
+    "postbuild": "node resources/node/server.js"
   },
   "author": "Jean-Paul Gorman",
   "license": "MIT",

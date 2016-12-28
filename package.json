@@ -7,7 +7,7 @@
     "test": "mocha",
     "serve": "resources/scripts/serve.sh",
     "build": "npm run clean && resources/scripts/build.sh",
-    "postbuild": "node resources/node/server.js",
+    "postbuild": "npm run build && node resources/node/server.js",
     "clean": "rm -rf public"
   },
   "author": "Jean-Paul Gorman",

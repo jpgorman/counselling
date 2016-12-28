@@ -4,10 +4,10 @@ const assets = require("./assets")
 const breakpoints = require("./breakpoints")
 
 module.exports = {
-  assets,
-  colors,
-  typography,
-  breakpoints,
+  assets: assets,
+  colors: colors,
+  typography: typography,
+  breakpoints: breakpoints,
   units: {
     baseUnit: 8
   },

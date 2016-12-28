@@ -1,1 +1,1 @@
-web: babel-node resources/node/server.js
+web: ./node_modules/.bin/babel-node resources/node/server.js

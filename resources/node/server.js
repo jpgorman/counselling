@@ -6,8 +6,8 @@ var compression = require("compression")
 
 /*eslint-disable no-console */
 
-const port = 8887
-const host = "http://localhost"
+const port = process.env.PORT || 8887
+const host = process.env.HOST || "http://localhost"
 const app = express()
 
 app.use(compression())

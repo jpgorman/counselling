@@ -1,4 +1,5 @@
 import React, {PropTypes} from "react"
+import theme from "theme"
 import {Header, Regular, SubHeader, VerticalSpacing, Divider, Slat} from "../components"
 
 export class About extends React.Component {
@@ -24,6 +25,7 @@ export class About extends React.Component {
           <Slat>
             <VerticalSpacing unit={3}>
             <Header>About Me</Header>
+            <img src={`/${theme.assets.outdoorShot}`} width="100%" />
             <SubHeader>As a counsellor</SubHeader>
             <Regular>I am an <a target="_blank" href="http://www.counselling-directory.org.uk/integrative-therapy.html">integrative counsellor</a> and I believe that therapy should be tailored to the individual, as no two people are the same and no single approach can be applied to every client.</Regular>
             <Regular>This means that I use a number of different counselling techniques depending on what I feel is best for you as a person and the outcomes you wish for.</Regular>

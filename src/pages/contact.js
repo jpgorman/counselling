@@ -7,8 +7,8 @@ export function Contact() {
       <Slat>
         <VerticalSpacing unit={3}>
           <Header>Contact</Header>
-          <Regular>Sessions by appointment only.
-  Appointments made via phone on 07422 972 165 or email <a href="mailto:info@catchappell.co.uk" target="blank">info@catchappell.co.uk</a></Regular>
+          <SubHeader>Sessions by appointment only.</SubHeader>
+          <Regular> Appointments made via phone on 07422 972 165 or email <a href="mailto:info@catchappell.co.uk" target="blank">info@catchappell.co.uk</a></Regular>
         </VerticalSpacing>
       </Slat>
       <Divider />
@@ -21,13 +21,19 @@ export function Contact() {
 
           <SubHeader>Location</SubHeader>
           <Regular>I work at <a href="http://ensohealingrooms.com/" target="blank">Enso Healing Rooms</a></Regular>
-          <Regular>190 Cheltenham Road</Regular>
-          <Regular>Bristol</Regular>
-          <Regular>BS6 5RB</Regular>
+          <Regular>
+            190 Cheltenham Road <br />
+            Bristol <br />
+            BS6 5RB
+          </Regular>
           <Regular>The practice is based in Bristol on Cheltenham Road between the Gloucester Road and Stokes Croft</Regular>
-          <Regular>It offers:</Regular>
-          <Regular>Comfortable and spacious rooms.</Regular>
-          <Regular>Private Reception area</Regular>
+          <Regular>
+            It offers:
+            <ul>
+              <li>Comfortable and spacious rooms.</li>
+              <li>Private Reception area.</li>
+            </ul>
+          </Regular>
         </VerticalSpacing>
       </Slat>
       <Divider />
@@ -46,7 +52,12 @@ export function Contact() {
 
           <SubHeader>By Bike</SubHeader>
           <Regular>There are also several sheffield stands to lock bikes securely both at the front and the back of the location.</Regular>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d458.8237752006826!2d-2.5922093945991564!3d51.46809839203094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe5fc6043a088a902!2sEnso+Martial+Arts+Shop!5e0!3m2!1sen!2suk!4v1481490457089" width="100%" height="450" frameBorder="0" style={{border:0}} allowFullScreen></iframe>
+
+          <SubHeader>Entrance to Enso Healing Rooms</SubHeader>
+          <Regular>The entrance straight into the clinic is on Cheltenham Lane, just off Cheltenham Road. To get to this entrance, walk along Cheltenham Lane (opposite Brookfield Road), turn right and follow the lane. You will see the sign for the Enso Healing Rooms. Simply ring the door bell and someone will let you in and show you to the waiting area. Here you will be able to read magazines and make yourself a nice cup of tea while you wait for your treatment.</Regular>
+
+          <Regular>Alternatively, you can access Enso Healing gRooms through the Enso Martial Arts shop. The shop is open between 10am till 6pm Monday to Friday and 10am till 5pm on Saturdays. You can use this entrance whenever the open is open and someone will show you where to go.</Regular>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d621.3630436475393!2d-2.5924658725696013!3d51.468213921388816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718e0b78072dcd%3A0xe301213423636638!2sEnso+Healing+Rooms!5e0!3m2!1sen!2suk!4v1483036529293" width="600" height="450" frameBorder="0" style={{border:0}} allowFullScreen></iframe>
         </VerticalSpacing>
       </Slat>
     </VerticalSpacing>

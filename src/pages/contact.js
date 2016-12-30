@@ -56,7 +56,7 @@ export function Contact() {
           <SubHeader>Entrance to Enso Healing Rooms</SubHeader>
           <Regular>The entrance straight into the clinic is on Cheltenham Lane, just off Cheltenham Road. To get to this entrance, walk along Cheltenham Lane (opposite Brookfield Road), turn right and follow the lane. You will see the sign for the Enso Healing Rooms. Simply ring the door bell and someone will let you in and show you to the waiting area. Here you will be able to read magazines and make yourself a nice cup of tea while you wait for your treatment.</Regular>
 
-          <Regular>Alternatively, you can access Enso Healing gRooms through the Enso Martial Arts shop. The shop is open between 10am till 6pm Monday to Friday and 10am till 5pm on Saturdays. You can use this entrance whenever the open is open and someone will show you where to go.</Regular>
+          <Regular>Alternatively, you can access Enso Healing Rooms through the Enso Martial Arts shop. The shop is open between 10am till 6pm Monday to Friday and 10am till 5pm on Saturdays. You can use this entrance whenever the open is open and someone will show you where to go.</Regular>
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d621.3630436475393!2d-2.5924658725696013!3d51.468213921388816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718e0b78072dcd%3A0xe301213423636638!2sEnso+Healing+Rooms!5e0!3m2!1sen!2suk!4v1483036529293" width="100%" height="450" frameBorder="0" style={{border:0}} allowFullScreen></iframe>
         </VerticalSpacing>
       </Slat>

@@ -1,5 +1,5 @@
 import React, {PropTypes} from "react"
-import {NavBar, Container, Banner} from "../components"
+import {NavBar, Container, Banner, Footer} from "../components"
 
 export class App extends React.Component {
 
@@ -28,6 +28,7 @@ export class App extends React.Component {
           active={activeMenu}
           handler={this.setMenuActive} />
         {this.props.children}
+        <Footer />
       </Container>
     )
   }

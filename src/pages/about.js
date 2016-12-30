@@ -39,12 +39,12 @@ export class About extends React.Component {
             <Header>Training and experience</Header>
 
             <SubHeader>Training</SubHeader>
-            <Regular>As well as regular continuing professional development courses taken regularly, I have trained in the following:</Regular>
+            <Regular>As well as regular continuing professional development, I have trained in the following:</Regular>
             <Regular>
               <ul>
                 <li>Professional Diploma in Counselling; University of the West of England, 2015 (BACP Accredited)</li>
                 <li>Rape and Sexual Abuse professional awareness and support, Sarsas, 2015</li>
-                <li>Self Injury professional awareness and assistance, Self Injury Support, 2014</li>
+                <li>Self injury professional awareness and assistance, Self Injury Support, 2014</li>
                 <li>Trauma and childhood sexual abuse in a therapeutic setting, Southmead Project, 2013</li>
                 <li>Addictions in a therapeutic setting, Swan project, 2013</li>
                 <li>Certificate in Counselling skills; University of the West of England, 2013</li>
@@ -66,25 +66,22 @@ export class About extends React.Component {
             <Regular>
               <strong>People experiencing:</strong>
               <ul>
-                <li>Depression</li>
-                <li>Anxiety</li>
+                <li>Depression, sadness and low mood</li>
+                <li>Anxiety, overthinking, fears and phobias</li>
                 <li>Domestic Violence</li>
-                <li>Emotional abuse</li>
+                <li>Emotional abuse and gaslighting</li>
                 <li>Gaslighting</li>
                 <li>Bullying</li>
-                <li>Trauma</li>
-                <li>Abuse</li>
+                <li>Trauma and abuse</li>
                 <li>Flashbacks</li>
                 <li>Feeling lost</li>
                 <li>Bullying</li>
                 <li>Panic attacks</li>
-                <li>Sexual Abuse</li>
-                <li>Rape</li>
+                <li>Rape and sexual abuse</li>
                 <li>Relationship problems</li>
-                <li>Social anxiety</li>
                 <li>Stress</li>
-                <li>Addiction </li>
-                <li>Low Self-Confidence</li>
+                <li>Addiction and relapse </li>
+                <li>Confidence issues, low self-esteem and low self-worth</li>
                 <li>Low Self-Esteem</li>
                 <li>Shame</li>
                 <li>Workplace stress - particularly in front line caring roles and the media industry</li>
@@ -93,12 +90,13 @@ export class About extends React.Component {
             <Regular>
               <strong>Help with</strong>
                 <ul>
-                  <li>Learning self-care</li>
-                  <li>Relaxation techniques</li>
                   <li>Understanding of self</li>
                   <li>Finding inner strength</li>
+                  <li>Learning self-care</li>
+                  <li>Relaxation techniques</li>
                   <li>Confidence</li>
                   <li>Healthy coping strategies</li>
+                  <li>Finding calm</li>
                 </ul>
             </Regular>
 
@@ -110,7 +108,7 @@ export class About extends React.Component {
           <VerticalSpacing unit={3}>
             <span ref="what" />
             <Header>What will therapy be like?</Header>
-            <Regular>I feel that by being an active and impartial listener during therapy I can help you to understand the source of motivations behind actions and behaviours. We can then work together to help you choose to take different actions with this new understanding.</Regular>
+            <Regular>By being an active and impartial listener during therapy I can help you to understand the source of motivations behind actions and behaviours. We can then work together to help you choose to take different actions with this new understanding.</Regular>
             <Regular>As an Integrative Counsellor, the therapy I provide will help to foster this process by using specific techniques and key concepts drawn in from various approaches that I feel are appropriate to you. I don’t believe there is a ‘one size fits all’ solution.</Regular>
             <Regular><a target="_blank" href="http://www.counselling-directory.org.uk/integrative-therapy.html">More on what Integrative counselling is and how it works.</a></Regular>
 

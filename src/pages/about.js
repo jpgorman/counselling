@@ -68,21 +68,18 @@ export class About extends React.Component {
               <ul>
                 <li>Depression, sadness and low mood</li>
                 <li>Anxiety, overthinking, fears and phobias</li>
-                <li>Domestic Violence</li>
+                <li>Domestic violence</li>
                 <li>Emotional abuse and gaslighting</li>
-                <li>Gaslighting</li>
                 <li>Bullying</li>
                 <li>Trauma and abuse</li>
                 <li>Flashbacks</li>
                 <li>Feeling lost</li>
-                <li>Bullying</li>
                 <li>Panic attacks</li>
                 <li>Rape and sexual abuse</li>
                 <li>Relationship problems</li>
                 <li>Stress</li>
                 <li>Addiction and relapse </li>
-                <li>Confidence issues, low self-esteem and low self-worth</li>
-                <li>Low Self-Esteem</li>
+                <li>Confidence issues, low self-esteem</li>
                 <li>Shame</li>
                 <li>Workplace stress - particularly in front line caring roles and the media industry</li>
               </ul>

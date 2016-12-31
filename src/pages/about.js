@@ -90,7 +90,7 @@ export class About extends React.Component {
         <Slat>
           <VerticalSpacing unit={3}>
             <span ref={this.props.registerRef.bind(null, "what")} />
-            <Header>What will therapy be like?</Header>
+            <Header>What will counselling be like?</Header>
             <Regular>By being an active and impartial listener during counselling, I can help you to understand the source of motivations behind actions and behaviours. We can then work together to help you choose to take different actions with this new understanding.</Regular>
             <Regular>As an Integrative counsellor, the counselling I provide will help to encourage this process by using specific techniques and key concepts drawn in from various approaches that I feel are appropriate to you. I don’t believe there is a ‘one size fits all’ solution.</Regular>
             <Regular><a target="_blank" href="http://www.counselling-directory.org.uk/integrative-therapy.html">More on what Integrative counselling is and how it works.</a></Regular>

@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react"
-import {NavBar, Container, Banner, Footer} from "../components"
+import {NavBar, Banner} from "../components"
 
-export class App extends React.Component {
+export class PageHeader extends React.Component {
 
   constructor(props) {
     super(props)
@@ -22,18 +22,16 @@ export class App extends React.Component {
     const {activeMenu} = this.state
 
     return (
-      <Container>
+      <span>
         <Banner />
         <NavBar
           active={activeMenu}
           handler={this.setMenuActive} />
-        {this.props.children}
-        <Footer />
-      </Container>
+      </span>
     )
   }
 }
 
-App.propTypes = {
+PageHeader.propTypes = {
   children: PropTypes.any,
 }

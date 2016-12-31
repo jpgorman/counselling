@@ -19,7 +19,6 @@
 
 @media (getbreakpoint(phone-only)) {
   .wrapper {
-    margin-top: baseunits(10);
-    padding: 0 baseunits(2);
+    padding: baseunits(10) baseunits(2) 0;
   }
 }

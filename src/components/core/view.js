@@ -21,7 +21,7 @@ export class View extends React.Component {
   }
 }
 
-View.PropTypes = {
+View.propTypes = {
   style: PropTypes.object,
   children: PropTypes.any,
 }

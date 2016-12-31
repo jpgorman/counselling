@@ -4,21 +4,6 @@ import {Header, Regular, SubHeader, VerticalSpacing, Divider, Slat} from "../com
 
 export class About extends React.Component {
 
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
-    const {location} = this.props
-    let hash = location.hash.replace("#", "")
-    if (hash === "what") {
-      let node = this.refs.what
-      if (this.refs.what) {
-        node.scrollIntoView()
-      }
-    }
-  }
-
   render() {
     return (
       <VerticalSpacing unit={10}>
@@ -104,7 +89,7 @@ export class About extends React.Component {
         <Divider />
         <Slat>
           <VerticalSpacing unit={3}>
-            <span ref="what" />
+            <span ref={this.props.registerRef.bind(null, "what")} />
             <Header>What will therapy be like?</Header>
             <Regular>By being an active and impartial listener during counselling, I can help you to understand the source of motivations behind actions and behaviours. We can then work together to help you choose to take different actions with this new understanding.</Regular>
             <Regular>As an Integrative counsellor, the counselling I provide will help to encourage this process by using specific techniques and key concepts drawn in from various approaches that I feel are appropriate to you. I don’t believe there is a ‘one size fits all’ solution.</Regular>
@@ -131,4 +116,5 @@ export class About extends React.Component {
 
 About.propTypes = {
   location: PropTypes.object,
+  registerRef: PropTypes.func,
 }

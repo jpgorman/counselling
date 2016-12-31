@@ -4,7 +4,7 @@ import styles from "./footer.css"
 import {Detail} from "./typography"
 import {View, Emphasis} from "./core"
 
-export function Footer() {
+export function PageFooter() {
   return (
     <View className={styles.container}>
       <View

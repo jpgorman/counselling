@@ -7,7 +7,6 @@ export function Contact() {
       <Slat>
         <VerticalSpacing unit={3}>
           <Header>Contact</Header>
-          <SubHeader>Sessions by appointment only.</SubHeader>
           <Regular> Appointments made via phone on 07422 972 165 or email <a href="mailto:info@catchappell.co.uk" target="blank">info@catchappell.co.uk</a></Regular>
         </VerticalSpacing>
       </Slat>
@@ -27,13 +26,6 @@ export function Contact() {
             BS6 5RB
           </Regular>
           <Regular>The practice is based in Bristol on Cheltenham Road between the Gloucester Road and Stokes Croft</Regular>
-          <Regular>
-            It offers:
-            <ul>
-              <li>Comfortable and spacious rooms.</li>
-              <li>Private Reception area.</li>
-            </ul>
-          </Regular>
         </VerticalSpacing>
       </Slat>
       <Divider />

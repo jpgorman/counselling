@@ -1,7 +1,8 @@
 import React, {PropTypes} from "react"
 
 function loadWithUrlHash({location}) {
-  const DOMNode = this.refsDictionary[location.hash.replace("#", "")] || this.top
+  const hash = location.hash.replace("#", "")
+  const DOMNode = this.refsDictionary.hasOwnProperty(hash) ? this.refsDictionary[hash] : this.top
   if(DOMNode)
     DOMNode.scrollIntoView()
 }

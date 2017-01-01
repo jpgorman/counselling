@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import { Router, Route, browserHistory, IndexRoute } from "react-router"
-import {Home, About, Contact} from "./pages/"
+import {Home, About, Contact, Counselling} from "./pages/"
 import {pageWrapper} from "./page-wrapper"
 import {onMountScrollToAnchor} from "./components/core/onMountScrollToAnchor"
 
@@ -11,6 +11,7 @@ ReactDOM.render((
       <IndexRoute component={onMountScrollToAnchor(pageWrapper(Home))} />
       {/* add the routes here */}
       <Route path="/about" component={onMountScrollToAnchor(pageWrapper(About))}/>
+      <Route path="/counselling" component={onMountScrollToAnchor(pageWrapper(Counselling))}/>
       <Route path="/contact" component={onMountScrollToAnchor(pageWrapper(Contact))}/>
     </Route>
   </Router>

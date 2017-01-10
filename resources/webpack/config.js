@@ -51,7 +51,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Cat Chappell - Counsellor",
+      title: "Cat Chappell - Integrative Counsellor, Bristol",
       template: path.normalize(__dirname + "/./theme/templates/index.ejs"),
     }),
     new CopyStaticAssetsPlugin([

@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react"
 import theme from "theme"
-import {Header, Regular, SubHeader, VerticalSpacing, Divider, Slat} from "../components"
+import {Header, Regular, SubHeader, VerticalSpacing, Divider, Slat, Image} from "../components"
 
 export class About extends React.Component {
 
@@ -10,7 +10,7 @@ export class About extends React.Component {
           <Slat>
             <VerticalSpacing unit={3}>
             <Header>About Me</Header>
-            <img src={`/${theme.assets.outdoorShot}`} width="100%" />
+            <Image src={`/${theme.assets.outdoorShot}`} />
             <SubHeader>As a counsellor</SubHeader>
             <Regular>I am an <a target="_blank" href="http://www.counselling-directory.org.uk/integrative-therapy.html">integrative counsellor</a>. This means that I use a number of different counselling techniques depending on what I feel is best for you as a person and the outcomes you wish for.</Regular>
             <Regular>I believe that therapy should be tailored to the individual, as no two people are the same and no single approach can be applied to every person.</Regular>
@@ -39,6 +39,7 @@ export class About extends React.Component {
                 <li>Rape and sexual abuse</li>
                 <li>Relationship problems</li>
                 <li>Stress</li>
+                <li>Self-Harm</li>
                 <li>Addiction, recovery and relapse</li>
                 <li>Confidence issues and low self-esteem</li>
                 <li>Shame</li>
@@ -55,6 +56,7 @@ export class About extends React.Component {
                   <li>Confidence</li>
                   <li>Healthy coping strategies</li>
                   <li>Finding calm</li>
+                  <li>Feeling comfortable in your own skin</li>
                 </ul>
             </Regular>
           </VerticalSpacing>
@@ -84,7 +86,7 @@ export class About extends React.Component {
             <Regular>
               As well as my private counselling practice, I work as a sessional counsellor at <a target="_blank" href="http://www.sarsas.org.uk/">Somerset and Avon Rape and Sexual Abuse Service (SARSAS)</a> and have worked on the National Domestic Violence Helpline at <a target="_blank" href="https://www.womensaid.org.uk/">Women’s Aid</a> since 2011.
             </Regular>
-            <Regular> I spent 2 years at <a target="_blank" href="http://www.southmeadproject.org.uk/">The Southmead Project</a> as a counsellor for child survivors of sexual abuse and <a target="_blank" href="http://www.theswanproject.co.uk/">The Swan Project</a> for 1.5 years as a counsellor for people with addictions.
+            <Regular> I spent 2 years at <a target="_blank" href="http://www.southmeadproject.org.uk/">The Southmead Project</a> as a counsellor for adult survivors of childhood sexual abuse and <a target="_blank" href="http://www.theswanproject.co.uk/">The Swan Project</a> for 1.5 years as a counsellor for people with addictions.
             </Regular>
             <Regular>
               I have attended courses on the impact of trauma, abuse, domestic violence, addiction and shame and specialise in seeing clients new to counselling.

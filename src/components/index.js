@@ -1,6 +1,7 @@
 export {NavLink} from "./nav-link"
 export {NavBar} from "./nav-bar"
 export {Container} from "./container"
+export {Image} from "./image"
 export {Banner} from "./banner"
 export {PageHeader} from "./header"
 export {PageFooter} from "./footer"

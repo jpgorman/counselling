@@ -1,0 +1,22 @@
+.wrapper {
+  border: 1px solid getcolor(noir, 0.2);
+}
+
+@media (getbreakpoint(tablet-portrait-up)) {
+  .wrapper {
+    padding: baseunits(5);
+  }
+}
+
+@media (getbreakpoint(desktop-up)) {
+  .wrapper {
+    padding: baseunits(8);
+  }
+}
+
+@media (getbreakpoint(phone-only)) {
+  .wrapper {
+    padding: 0;
+    border: none;
+  }
+}

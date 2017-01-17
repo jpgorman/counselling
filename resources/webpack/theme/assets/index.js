@@ -3,6 +3,7 @@ module.exports = {
   logo: "assets/logo.jpg",
   headShot: "assets/head-shot.jpg",
   outdoorShot: "assets/outdoor-shot.jpg",
+  roomShot: "assets/therapy-room.jpg",
   favicon16: "assets/favicon-16X16.png",
   favicon32: "assets/favicon-32X32.png",
   psa: "assets/psa.jpg",

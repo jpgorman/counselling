@@ -1,5 +1,5 @@
 import React from "react"
-import {Header, Regular, SubHeader, VerticalSpacing, Divider, Slat} from "../components"
+import {Header, Regular, SubHeader, VerticalSpacing, Divider, Slat, PageLink} from "../components"
 
 export function Contact() {
   return (
@@ -7,7 +7,7 @@ export function Contact() {
       <Slat>
         <VerticalSpacing unit={3}>
           <Header>Contact</Header>
-          <Regular> Appointments made via phone on 07422 972 165 or email <a href="mailto:info@catchappell.co.uk" target="blank">info@catchappell.co.uk</a></Regular>
+          <Regular> Appointments made via phone on 07422 972 165 or email <PageLink uri="mailto:info@catchappell.co.uk">info@catchappell.co.uk</PageLink></Regular>
         </VerticalSpacing>
       </Slat>
       <Divider />
@@ -19,7 +19,7 @@ export function Contact() {
           <Regular>An initial telephone consultation is free.</Regular>
 
           <SubHeader>Location</SubHeader>
-          <Regular>I work at <a href="http://ensohealingrooms.com/" target="blank">Enso Healing Rooms</a></Regular>
+          <Regular>I work at <PageLink uri="http://ensohealingrooms.com/">Enso Healing Rooms</PageLink></Regular>
           <Regular>
             190 Cheltenham Road <br />
             Bristol <br />
@@ -40,7 +40,7 @@ export function Contact() {
 
 
           <SubHeader>By Public Transport</SubHeader>
-          <Regular>The buses 70,71,72,75 and 76 all stop almost outside the location – you can plan your journey using the <a href="http://www.travelinesw.com/swe/XSLT_TRIP_REQUEST2?language=en&timeOffset=15" target="blank">Traveline Journey Planner</a></Regular>
+          <Regular>The buses 70,71,72,75 and 76 all stop almost outside the location – you can plan your journey using the <PageLink uri="http://www.travelinesw.com/swe/XSLT_TRIP_REQUEST2?language=en&timeOffset=15">Traveline Journey Planner</PageLink></Regular>
 
           <SubHeader>By Bike</SubHeader>
           <Regular>There are also several sheffield stands to lock bikes securely both at the front and the back of the location.</Regular>

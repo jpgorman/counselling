@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react"
 import theme from "theme"
-import {Header, Regular, SubHeader, VerticalSpacing, Divider, Slat, Image} from "../components"
+import {Header, Regular, SubHeader, VerticalSpacing, Divider, Slat, Image, PageLink} from "../components"
 
 export class About extends React.Component {
 
@@ -12,7 +12,7 @@ export class About extends React.Component {
             <Header>About Me</Header>
             <Image src={`/${theme.assets.outdoorShot}`} />
             <SubHeader>As a counsellor</SubHeader>
-            <Regular>I am an <a target="_blank" href="http://www.counselling-directory.org.uk/integrative-therapy.html">integrative counsellor</a>. This means that I use a number of different counselling techniques depending on what I feel is best for you as a person and the outcomes you wish for.</Regular>
+            <Regular>I am an <PageLink uri="http://www.counselling-directory.org.uk/integrative-therapy.html">integrative counsellor</PageLink>. This means that I use a number of different counselling techniques depending on what I feel is best for you as a person and the outcomes you wish for.</Regular>
             <Regular>I believe that therapy should be tailored to the individual, as no two people are the same and no single approach can be applied to every person.</Regular>
             <Regular>I am a registered member of the British Association of Counsellors and Psychotherapists and abide by their code of ethics.</Regular>
             <Regular>I am a feminist and am committed to reducing environmental impact where I can; I cycle to all appointments and use a Freephone.</Regular>
@@ -84,9 +84,9 @@ export class About extends React.Component {
 
             <SubHeader>Experience</SubHeader>
             <Regular>
-              As well as my private counselling practice, I work as a sessional counsellor at <a target="_blank" href="http://www.sarsas.org.uk/">Somerset and Avon Rape and Sexual Abuse Service (SARSAS)</a> and have worked on the National Domestic Violence Helpline at <a target="_blank" href="https://www.womensaid.org.uk/">Women’s Aid</a> since 2011.
+              As well as my private counselling practice, I work as a sessional counsellor at <PageLink uri="http://www.sarsas.org.uk/">Somerset and Avon Rape and Sexual Abuse Service (SARSAS)</PageLink> and have worked on the National Domestic Violence Helpline at <PageLink uri="https://www.womensaid.org.uk/">Women’s Aid</PageLink> since 2011.
             </Regular>
-            <Regular> I spent 2 years at <a target="_blank" href="http://www.southmeadproject.org.uk/">The Southmead Project</a> as a counsellor for adult survivors of childhood sexual abuse and <a target="_blank" href="http://www.theswanproject.co.uk/">The Swan Project</a> for 1.5 years as a counsellor for people with addictions.
+            <Regular> I spent 2 years at <PageLink uri="http://www.southmeadproject.org.uk/">The Southmead Project</PageLink> as a counsellor for adult survivors of childhood sexual abuse and <PageLink uri="http://www.theswanproject.co.uk/">The Swan Project</PageLink> for 1.5 years as a counsellor for people with addictions.
             </Regular>
             <Regular>
               I have attended courses on the impact of trauma, abuse, domestic violence, addiction and shame and specialise in seeing clients new to counselling.

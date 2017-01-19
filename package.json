@@ -9,8 +9,9 @@
   "scripts": {
     "test": "mocha",
     "serve": "resources/scripts/serve.sh",
-    "build": "rm -rf public && webpack --config resources/webpack/prod/config.js --content-base . --history-api-fallback",
-    "postinstall": "npm run lint && npm run build",
+    "build": "webpack --config resources/webpack/prod/config.js --content-base . --history-api-fallback",
+    "postinstall": "npm run build",
+    "heroku-prebuild": "rm -rf public && npm run lint",
     "lint": "eslint 'src/**/*.js'"
   },
   "author": "Jean-Paul Gorman",

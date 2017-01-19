@@ -9,6 +9,6 @@ export function Container(props) {
   )
 }
 
-Container.PropTypes = {
+Container.propTypes = {
   children: PropTypes.any,
 }

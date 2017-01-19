@@ -1,18 +1,22 @@
 import React, {PropTypes} from "react"
+import { Link } from "react-router"
 import styles from "./page-link.css"
 
-export function PageLink({uri, children}) {
+export function PageLink({uri, to, children}) {
+  const target = !to ? "_blank": ""
   return (
-    <a
-      target="_blank"
+    <Link
+      to={to}
+      target={target}
       href={uri}
       className={styles.container}>
       {children}
-    </a>
+    </Link>
   )
 }
 
 PageLink.propTypes = {
-  uri: PropTypes.string.isRequired,
+  to: PropTypes.string,
+  uri: PropTypes.string,
   children: PropTypes.any,
 }

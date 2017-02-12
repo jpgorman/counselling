@@ -7,20 +7,30 @@ const compression = require("compression")
 const helmet = require("helmet")
 const session = require("cookie-session")
 
+
+const prismicConfig = require("./prismic-config")
+
 const expiryDate = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
 const port = process.env.PORT || 8887
 const host = process.env.HOST || "http://localhost"
 const app = express()
 
+const errorMap = {
+  404: "404 not found",
+  500: "Internal Server Error",
+}
+
 const errorHandler = (res) => (err) => {
   console.log("Something went wrong: ", err)
-  res.status(500).send("Internal Server Error")
+  res.status(err.status).send(errorMap[err.status] || errorMap[500])
 }
 
 const responseHandler = (res, handler) => (data) => {
   res.setHeader("Content-Type", "application/json")
   res.send(JSON.stringify(handler(data)))
 }
+
+const api = () => prismic.api(prismicConfig.apiEndpoint)
 
 app.use(session({
   name: "session",
@@ -38,7 +48,7 @@ app.use(compression())
 app.use(express.static("public"))
 
 app.get("/blog", function(req, res) {
-  prismic.api("https://catchappell.prismic.io/api").then(function(api) {
+  api().then(function(api) {
     return api.query(
       prismic.Predicates.at("document.type", "blog_post"),
       { orderings : "[blog_post.date desc]" }
@@ -50,7 +60,7 @@ app.get("/blog", function(req, res) {
 
 app.get("/blog/:uid", function(req, res) {
   const uid = req.params.uid
-  prismic.api("https://catchappell.prismic.io/api").then(function(api) {
+  api().then(function(api) {
     return api.getByUID("blog_post", uid)
   })
   .then(responseHandler(res, (data) => data))

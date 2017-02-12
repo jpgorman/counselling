@@ -1,18 +1,26 @@
-var express = require("express")
-var path = require("path")
-var open = require("open")
-var compression = require("compression")
-var helmet = require("helmet")
-var session = require("cookie-session")
-
-var expiryDate = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
-// import favicon from "serve-favicon"
-
 /*eslint-disable no-console */
+const prismic = require("prismic.io")
+const express = require("express")
+const path = require("path")
+const open = require("open")
+const compression = require("compression")
+const helmet = require("helmet")
+const session = require("cookie-session")
 
+const expiryDate = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
 const port = process.env.PORT || 8887
 const host = process.env.HOST || "http://localhost"
 const app = express()
+
+const errorHandler = (res) => (err) => {
+  console.log("Something went wrong: ", err)
+  res.status(500).send("Internal Server Error")
+}
+
+const responseHandler = (res, handler) => (data) => {
+  res.setHeader("Content-Type", "application/json")
+  res.send(JSON.stringify(handler(data)))
+}
 
 app.use(session({
   name: "session",
@@ -28,7 +36,26 @@ app.use(session({
 app.use(helmet())
 app.use(compression())
 app.use(express.static("public"))
-// app.use(favicon(path.join(__dirname,"assets","public","favicon.ico")))
+
+app.get("/blog", function(req, res) {
+  prismic.api("https://catchappell.prismic.io/api").then(function(api) {
+    return api.query(
+      prismic.Predicates.at("document.type", "blog_post"),
+      { orderings : "[blog_post.date desc]" }
+    )
+  })
+  .then(responseHandler(res, (data) => data.results))
+  .catch(errorHandler(res))
+})
+
+app.get("/blog/:uid", function(req, res) {
+  const uid = req.params.uid
+  prismic.api("https://catchappell.prismic.io/api").then(function(api) {
+    return api.getByUID("blog_post", uid)
+  })
+  .then(responseHandler(res, (data) => data))
+  .catch(errorHandler(res))
+})
 
 app.get("*", function(req, res) {
   try {

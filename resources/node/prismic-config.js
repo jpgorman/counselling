@@ -1,3 +1,3 @@
 module.exports = {
-  apiEndpoint: "https://catchappell.prismic.io/apis",
+  apiEndpoint: "https://catchappell.prismic.io/api",
 }

@@ -1,4 +1,5 @@
 export {AboutPage as About} from "./about"
+export {BlogPage as Blog} from "./blog"
 export {Home} from "./home"
 export {Contact} from "./contact"
 export {Counselling} from "./counselling"

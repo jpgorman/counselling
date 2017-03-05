@@ -1,4 +1,3 @@
-import {concat} from "ramda"
 import actions from "../actions"
 
 export function posts(state = {

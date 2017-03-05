@@ -7,7 +7,8 @@ import { createStore, applyMiddleware } from "redux"
 import { Router, Route, browserHistory, IndexRoute } from "react-router"
 import {compose} from "ramda"
 
-import {Home, About, Contact, Counselling} from "./pages/"
+import { fetchPosts } from "./action-creators"
+import {Home, About, Contact, Counselling, Blog} from "./pages/"
 import {pageWrapper} from "./page-wrapper"
 import {onMountScrollToAnchor} from "./components/core/onMountScrollToAnchor"
 import {withTracking} from "./components/core/tracking"
@@ -30,6 +31,7 @@ function addCoreWrappers(Component) {
   )(Component)
 }
 
+
 ReactDOM.render((
   <Provider store={store}>
     <Router history={browserHistory}>
@@ -37,6 +39,7 @@ ReactDOM.render((
         <IndexRoute component={addCoreWrappers(Home)} />
         {/* add the routes here */}
         <Route path="/about" component={addCoreWrappers(About)}/>
+        <Route path="/blog" component={addCoreWrappers(Blog)} onEnter={() => store.dispatch(fetchPosts())}/>
         <Route path="/counselling" component={addCoreWrappers(Counselling)}/>
         <Route path="/contact" component={addCoreWrappers(Contact)}/>
       </Route>

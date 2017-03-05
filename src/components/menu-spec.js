@@ -7,6 +7,10 @@ export const menuSpec = {
     label: "About",
     route: "/about",
   },
+  blog: {
+    label: "Blog",
+    route: "/blog",
+  },
   counselling: {
     label: "Counselling",
     route: "/counselling",

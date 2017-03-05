@@ -6,12 +6,12 @@ const open = require("open")
 const compression = require("compression")
 const helmet = require("helmet")
 const session = require("cookie-session")
-
+const allowCrossDomain = require("./middleware/allow-cross-domain")
 
 const prismicConfig = require("./prismic-config")
 
 const expiryDate = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
-const port = process.env.PORT || 8887
+const port = process.env.PORT || 5000
 const host = process.env.HOST || "http://localhost"
 const app = express()
 
@@ -31,7 +31,6 @@ const responseHandler = (res, handler) => (data) => {
 }
 
 const api = () => prismic.api(prismicConfig.apiEndpoint)
-
 app.use(session({
   name: "session",
   keys: ["key1"],
@@ -46,6 +45,7 @@ app.use(session({
 app.use(helmet())
 app.use(compression())
 app.use(express.static("public"))
+app.use(allowCrossDomain)
 
 app.get("/blog", function(req, res) {
   api().then(function(api) {
@@ -71,7 +71,7 @@ app.get("*", function(req, res) {
   try {
     res.sendFile(path.join(__dirname, "../../public/index.html"))
   } catch (e) {
-    res.status(500).send("Internal Server Error")
+    errorHandler(res)
   }
 
 })

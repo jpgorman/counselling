@@ -1,25 +1,13 @@
 
 import React, {PropTypes} from "react"
-import { connect } from "react-redux"
 import theme from "theme"
-import { fetchPosts } from "../action-creators"
 import {Header, Regular, SubHeader, VerticalSpacing, Divider, Slat, Image, PageLink} from "../components"
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps, "own props")
-  return {
-    posts: state.posts,
-    isFetching: state.isFetching,
-  }
-}
-
-class About extends React.Component {
+export class About extends React.Component {
 
   render() {
-    const {fetchPosts} = this.props
     return (
       <VerticalSpacing unit={10}>
-          <div onClick={fetchPosts}>Testy</div>
           <Slat>
             <VerticalSpacing unit={3}>
             <Header>About Me</Header>
@@ -118,5 +106,3 @@ About.propTypes = {
   location: PropTypes.object,
   registerRef: PropTypes.func,
 }
-
-export const AboutPage = connect(mapStateToProps, {fetchPosts})(About)

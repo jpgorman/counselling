@@ -12,7 +12,7 @@
     "start": "node ./resources/node/server.js",
     "build": "webpack --config resources/webpack/prod/config.js --content-base . --history-api-fallback",
     "postinstall": "npm run build",
-    "heroku-prebuild": "rm -rf public && npm run lint",
+    "heroku-prebuild": "rm -rf public",
     "lint": "eslint 'src/**/*.js'"
   },
   "author": "Jean-Paul Gorman",

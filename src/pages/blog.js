@@ -22,7 +22,7 @@ class Blog extends React.Component {
             <Header>Blog</Header>
             <Image src={`/${theme.assets.blog1}`} />
             <Detail>8th March 2017</Detail>
-            <SubHeader>Integrating feminism into counsellingr</SubHeader>
+            <SubHeader>Integrating feminism into counselling</SubHeader>
             <Regular>I am an integrative counsellor. This means that I integrate different elements of counselling theory and practice with clients depending on who they are and what they need. I work this was as I feel there is no ‘one size fits all’ model of counselling.</Regular>
             <Regular>Something that I often integrate into my practice, is feminism. I feel this is important as patriarchal values are still very present in our lives, and are becoming ever more prevalent in 2017. Therefore I feel it is important to acknowledge this within my counselling practice.</Regular>
             <Regular>To acknowledge feminism is to acknowledge that women, because they are women, are treated differently than men, and therefore women are at a disadvantage in the world.</Regular>

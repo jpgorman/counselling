@@ -1,3 +1,5 @@
+import {host, port} from "server"
+
 export function post(fetch, actions) {
   const actionCreators = {
     getPost(post) {
@@ -25,7 +27,7 @@ export function post(fetch, actions) {
     fetchPost(uid) {
       return dispatch => {
         dispatch(actionCreators.requestPost())
-        return fetch(`http://localhost:5000/blog/${uid}`)
+        return fetch(`http://${host}:${port}/posts/${uid}`)
           .then(response => response.json())
           .then(posts => dispatch(actionCreators.getPost(posts)))
           .catch((err) => dispatch(actionCreators.failedToGetPost(err)))

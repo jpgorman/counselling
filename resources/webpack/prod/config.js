@@ -1,3 +1,4 @@
+var path = require("path")
 var webpack = require("webpack")
 var baseConfig = require("../config")
 
@@ -24,6 +25,8 @@ module.exports = function(baseConfig) {
 
   baseConfig.devtool = "source-map"
   baseConfig.output.filename = "bundle.min.js"
+
+  baseConfig.resolve.alias.server = path.resolve(__dirname, "./server-config.js")
 
   return baseConfig
 

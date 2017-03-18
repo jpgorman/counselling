@@ -5,14 +5,10 @@ import createLogger from "redux-logger"
 import { Provider } from "react-redux"
 import { createStore, applyMiddleware } from "redux"
 import { Router, Route, browserHistory, IndexRoute } from "react-router"
-import {compose} from "ramda"
 
-// import { fetchPosts } from "./action-creators"
-import {Home, About, Contact, Counselling, Blog} from "./pages/"
-import {pageWrapper} from "./page-wrapper"
-import {onMountScrollToAnchor} from "./components/core/onMountScrollToAnchor"
-import {withTracking} from "./components/core/tracking"
-
+import {fetchPosts, fetchPost} from "./action-creators"
+import {Home, About, Contact, Counselling, Posts, Post} from "./pages/"
+import {hydrate, addCoreWrappers} from "./core"
 import {postsApp} from "./reducers"
 
 let store = createStore(
@@ -23,23 +19,29 @@ let store = createStore(
   )
 )
 
-function addCoreWrappers(Component) {
-  return compose(
-    onMountScrollToAnchor,
-    pageWrapper,
-    withTracking
-  )(Component)
-}
-
+const hydrateRoute = hydrate(store)
+const shouldFetchPosts = ({posts}) => posts.entities.length === 0
 
 ReactDOM.render((
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={(props) => props.children}>
         <IndexRoute component={addCoreWrappers(Home)} />
-        {/* add the routes here */}
         <Route path="/about" component={addCoreWrappers(About)}/>
-        <Route path="/blog" component={addCoreWrappers(Blog)} /* onEnter={() => store.dispatch(fetchPosts())} *//>
+        <Route
+          path="/blog"
+          component={addCoreWrappers(Posts)}
+          onEnter={hydrateRoute({
+            predicate: shouldFetchPosts,
+            action: fetchPosts,
+          })} />
+        <Route
+          path="/blog/:uid"
+          component={addCoreWrappers(Post)}
+          onEnter={hydrateRoute({
+            predicate: shouldFetchPosts,
+            action: ({params}) => fetchPost(params.uid),
+          })} />
         <Route path="/counselling" component={addCoreWrappers(Counselling)}/>
         <Route path="/contact" component={addCoreWrappers(Contact)}/>
       </Route>

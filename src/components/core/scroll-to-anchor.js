@@ -7,7 +7,7 @@ function loadWithUrlHash({location}) {
     DOMNode.scrollIntoView()
 }
 
-export function onMountScrollToAnchor(Component) {
+export function scrollToAnchor(Component) {
 
   return class WrapComponentWithScrollToAnchor extends React.Component {
 

@@ -1,12 +1,12 @@
 import React, {PropTypes} from "react"
-export function withTracking(Component) {
+export function addTracking(Component) {
 
   return class Tracking extends React.Component {
 
     static get propTypes() {
       return {
         children: PropTypes.any,
-        route: PropTypes.object,
+        location: PropTypes.object,
       }
     }
 
@@ -15,7 +15,7 @@ export function withTracking(Component) {
     }
 
     componentDidMount() {
-      window.ga("set", "page", this.props.route.path)
+      window.ga("set", "page", this.props.location.pathname)
       window.ga("send", "pageview")
     }
 

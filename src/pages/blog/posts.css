@@ -1,0 +1,40 @@
+@media (getbreakpoint(tablet-portrait-up)) {
+  .item {
+    flex-direction: row;
+  }
+
+  .thumbnail{
+    margin-right: baseunits(2);
+  }
+}
+
+@media (getbreakpoint(desktop-up)) {
+  .item {
+    flex-direction: row;
+  }
+
+  .thumbnail{
+    margin-right: baseunits(2);
+  }
+}
+
+@media (getbreakpoint(phone-only)) {
+  .item {
+    flex-direction: column;
+  }
+  .thumbnail{
+    margin-bottom: baseunits(2);
+    align-items: center;
+  }
+}
+
+.item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.thumbnail {
+  display: flex;
+  flex-direction: column;
+}

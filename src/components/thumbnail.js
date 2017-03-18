@@ -1,8 +1,8 @@
 import React, {PropTypes} from "react"
 import {View} from "./core"
-import styles from "./image.css"
+import styles from "./thumbnail.css"
 
-export function Image({src, width = "100%"}) {
+export function Thumbnail({src, width = "100px"}) {
   return (
     <View className={styles.wrapper}>
       <img src={src} width={width} />
@@ -10,7 +10,7 @@ export function Image({src, width = "100%"}) {
   )
 }
 
-Image.propTypes = {
+Thumbnail.propTypes = {
   src: PropTypes.string.isRequired,
   width: PropTypes.string,
 }

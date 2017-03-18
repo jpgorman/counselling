@@ -17,8 +17,8 @@ const logger = new Logger({
 })
 
 const expiryDate = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
-const port = process.env.PORT || "localhost"
-const host = process.env.HOST || 5000
+const port = process.env.PORT || config.port
+const host = process.env.HOST || config.host
 const app = express()
 
 const errorMap = {
@@ -53,8 +53,8 @@ app.use(compression())
 app.use(express.static("public"))
 app.use(allowCrossDomain)
 
-app.get("/blog", function(req, res) {
-  logger.log("info", {route: "/blog"})
+app.get("/posts", function(req, res) {
+  logger.log("info", {route: "/posts"})
   api().then(function(api) {
     return api.query(
       prismic.Predicates.at("document.type", "blog_post"),
@@ -65,9 +65,9 @@ app.get("/blog", function(req, res) {
   .catch(errorHandler(res))
 })
 
-app.get("/blog/:uid", function(req, res) {
+app.get("/posts/:uid", function(req, res) {
   const uid = req.params.uid
-  logger.log("info", {route: `/blog/${uid}`})
+  logger.log("info", {route: `/posts/${uid}`})
   api().then(function(api) {
     return api.getByUID("blog_post", uid)
   })

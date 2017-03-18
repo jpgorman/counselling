@@ -1,0 +1,4 @@
+.wrapper {
+  border: 1px solid getcolor(noir, 0.2);
+  padding: baseunits(1);
+}

@@ -1,34 +1,18 @@
 import fetch from "isomorphic-fetch"
 import actions from "../actions"
+import {posts} from "./posts"
+import {post} from "./post"
 
-export function getPosts(posts) {
-  return {
-    type: actions.GET_POSTS_SUCCESS,
-    posts,
-    isFetching: false,
-  }
-}
+export const {
+  getPosts,
+  failedToGetPosts,
+  requestPosts,
+  fetchPosts
+} = posts(fetch, actions)
 
-export function failedToGetPosts() {
-  return {
-    type: actions.GET_POSTS_ERROR,
-    isFetching: false,
-  }
-}
-
-export function requestPosts() {
-  return {
-    type: actions.GET_POSTS_REQUEST,
-    isFetching: true,
-  }
-}
-
-export function fetchPosts() {
-  return dispatch => {
-    dispatch(requestPosts())
-    return fetch("http://localhost:5000/blog")
-      .then(response => response.json())
-      .then(posts => dispatch(getPosts(posts)))
-      .catch((err) => dispatch(failedToGetPosts(err)))
-  }
-}
+export const {
+  getPost,
+  failedToGetPost,
+  requestPost,
+  fetchPost
+} = post(fetch, actions)

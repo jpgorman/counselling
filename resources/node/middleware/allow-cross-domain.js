@@ -1,7 +1,7 @@
 const config = require("config")
 // Pushing config for CORS policy (you can set this in your app/config if you need a specific ip.)
 const ORIGINS = [
-  "https://www.catchappell.co.uk",
+  "http://www.catchappell.co.uk",
 ]
 
 // Default CORS for emulate-device.html

@@ -1,1 +1,1 @@
-web: node resources/node/server.js
+web: export NODE_ENV=production && node resources/node/server.js

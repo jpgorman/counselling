@@ -1,5 +1,5 @@
 import React from "react"
-import {PageHeader, PageFooter, Container} from "./components"
+import {PageHeader, PageFooter, Container} from ".."
 
 export function pageWrapper(Component) {
   return class Page extends React.Component {

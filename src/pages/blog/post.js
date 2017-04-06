@@ -1,6 +1,7 @@
 import React, {PropTypes} from "react"
 import { connect } from "react-redux"
 import {find, propEq} from "ramda"
+import {VerticalSpacing} from "../../components"
 import {Layout} from "./layout"
 import {mapContentTypes} from "./map-content"
 
@@ -26,7 +27,9 @@ class BlogPost extends React.Component {
     const {post} = this.props
     return post ? (
       <Layout title={post.title}>
+        <VerticalSpacing unit={3}>
         {renderPost(post)}
+        </VerticalSpacing>
       </Layout>
     ) : null
   }

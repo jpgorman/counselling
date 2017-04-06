@@ -34,6 +34,13 @@
   align-items: center;
 }
 
+.item + .item {
+  margin-top: baseunits(3);
+  padding-top: baseunits(3);
+  border-top: 1px solid;
+  border-color: getcolor(hint, 0.3);
+}
+
 .thumbnail {
   display: flex;
   flex-direction: column;

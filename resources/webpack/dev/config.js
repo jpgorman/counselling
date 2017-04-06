@@ -19,8 +19,6 @@ module.exports = function(baseConfig) {
   baseConfig.devtool = "source-map"
   baseConfig.output.filename = "bundle.js"
   baseConfig.resolve.alias.server = path.resolve(__dirname, "./server-config.js")
-  console.log(baseConfig)
-
   return baseConfig
 
 }(baseConfig)

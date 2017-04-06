@@ -1,5 +1,5 @@
 import {host, port} from "server"
-console.log(`http://${host}:${port}/posts`)
+
 export function posts(fetch, actions) {
   const actionCreators = {
     getPosts(posts) {

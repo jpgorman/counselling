@@ -32,15 +32,17 @@ function renderPosts(posts) {
 class BlogPosts extends React.Component {
   render() {
     const {posts} = this.props
-
     if(length(posts)) {
-      const [img, ...rest] = head(renderPosts(posts))
       return (
         <Layout title="Blog">
-          <View className={styles.item}>
-            <View className={styles.thumbnail}>{img}</View>
-            <Flex flexGrow={1} flexShrink={1}>{rest}</Flex>
-          </View>
+          {renderPosts(posts).map(([img, ...rest], index) => {
+            return (
+              <View className={styles.item} key={`post-${index}`}>
+                <View className={styles.thumbnail}>{img}</View>
+                <Flex flexGrow={1} flexShrink={1}>{rest}</Flex>
+              </View>
+            )
+          })}
         </Layout>
       )
     }

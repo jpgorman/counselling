@@ -6,9 +6,9 @@ export function Layout({title, children}) {
     <VerticalSpacing unit={10}>
         <Slat>
           <VerticalSpacing unit={3}>
-          <Header>{title}</Header>
-            {children}
+            <Header>{title}</Header>
           </VerticalSpacing>
+          {children}
         </Slat>
       <Divider />
     </VerticalSpacing>

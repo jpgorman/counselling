@@ -1,0 +1,7 @@
+.post a {
+  color: getcolor(hint);
+}
+
+.post p {
+  margin: 0 0 baseunits(3);
+}

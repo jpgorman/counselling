@@ -32,7 +32,7 @@ ReactDOM.render((
           path="/blog"
           component={addCoreWrappers(Posts)}
           onEnter={hydrateRoute({
-            predicate: shouldFetchPosts,
+            predicate: () => true,
             action: fetchPosts,
           })} />
         <Route

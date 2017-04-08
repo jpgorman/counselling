@@ -1,13 +1,18 @@
 import React from "react"
 import moment from "moment"
 import uuidV4 from "uuid/v4"
+import ReactHtmlParser from "html-react-parser"
 import {map, keys, last, split, partialRight, reduce, pick, pipe} from "ramda"
 import {Regular, Detail, SubHeader, Image, Thumbnail} from "../../components"
 
 const getNameFromKey = key => last(split(".", key))
 
-function renderStructuredText(key, Component, data) {
-  return map(({text}) => <Component key={`${key}-${uuidV4()}`}>{text}</Component>,data)
+function renderStructuredTextAsHtml(key, Component, text) {
+  return <Component key={`${key}-${uuidV4()}`}>{ReactHtmlParser(text)}</Component>
+}
+
+function renderStructuredText(key, Component, text) {
+  return <Component key={`${key}-${uuidV4()}`}>{text}</Component>
 }
 
 function renderTimestamp(key, Component, text, format) {
@@ -20,16 +25,28 @@ function renderImage(key, Component, {main}) {
 }
 
 const contentTypeToComponentDictionary = {
-  "StructuredText": {
-    getComponent: (name) => name === "title" ? SubHeader : Regular,
+  "title": {
+    getComponent: () => SubHeader,
     renderer: renderStructuredText,
   },
-  "Timestamp": {
+  "summary": {
+    getComponent: () => Regular,
+    renderer: renderStructuredText,
+  },
+  "body": {
+    getComponent: () => Regular,
+    renderer: renderStructuredTextAsHtml,
+  },
+  "date": {
     getComponent: () => Detail,
     renderer: partialRight(renderTimestamp, ["Do MMMM YYYY"]),
   },
-  "Image": {
-    getComponent: (name) => name === "thumbnail" ? Thumbnail : Image,
+  "img": {
+    getComponent: () => Image,
+    renderer: renderImage,
+  },
+  "thumbnail": {
+    getComponent: () => Thumbnail,
     renderer: renderImage,
   },
 }
@@ -42,9 +59,8 @@ function normaliseFieldNames(data) {
 }
 
 function renderData(key, data) {
-  const {type, value} = data[key]
-  const {getComponent, renderer} = contentTypeToComponentDictionary[type]
-  return renderer(key, getComponent(key), value)
+  const {getComponent, renderer} = contentTypeToComponentDictionary[key]
+  return renderer(key, getComponent(key), data[key])
 }
 
 export function mapContentTypes({data, fields}) {

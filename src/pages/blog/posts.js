@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react"
 import { connect } from "react-redux"
-import {map, append, length, head} from "ramda"
+import {map, append, length} from "ramda"
 
 import {Layout} from "./layout"
 import {PageLink, Flex, View, asyncWrapper} from "../../components"
@@ -22,8 +22,8 @@ function addLinkToPost(fields, {uid}) {
 function renderPosts(posts) {
   return map(post => {
     const fields = mapContentTypes({
-      data: post.data,
-      fields: ["thumbnail", "date", "title", "summary", "uid"],
+      data: post,
+      fields: ["thumbnail", "date", "title", "summary"],
     })
     return addLinkToPost(fields, post)
   }, posts)
@@ -32,7 +32,7 @@ function renderPosts(posts) {
 class BlogPosts extends React.Component {
   render() {
     const {posts} = this.props
-    if(length(posts)) {
+    if(length(posts) > 0) {
       return (
         <Layout title="Blog">
           {renderPosts(posts).map(([img, ...rest], index) => {

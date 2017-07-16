@@ -1,3 +1,5 @@
+/*eslint-disable no-undef */
+
 import React from "react"
 import ReactDOM from "react-dom"
 import thunkMiddleware from "redux-thunk"
@@ -11,11 +13,15 @@ import {Home, About, Contact, Counselling, Posts, Post} from "./pages/"
 import {hydrate, addCoreWrappers} from "./core"
 import {postsApp} from "./reducers"
 
+function logger() {
+  return MODE === "DEV" ? createLogger() : () => {}
+}
+
 let store = createStore(
   postsApp,
   applyMiddleware(
     thunkMiddleware, // lets us dispatch() functions
-    createLogger() // neat middleware that logs actions
+    logger() // neat middleware that logs actions
   )
 )
 

@@ -15,7 +15,7 @@ export function Contact() {
         <VerticalSpacing unit={3}>
           <Header>Fees & Location</Header>
           <SubHeader>Fees</SubHeader>
-          <Regular>I charge £45 per session (50 minutes)</Regular>
+          <Regular>I charge £48 per session (50 minutes)</Regular>
           <Regular>An initial telephone consultation is free.</Regular>
 
           <SubHeader>Location</SubHeader>

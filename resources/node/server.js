@@ -57,11 +57,13 @@ const getBlogPost = (post) => ({
   "blog_post.body": post.getStructuredText("blog_post.body").asHtml(() => null, htmlSerializer),
 })
 
+const sortByDateDesc = (a, b) => new Date(b.date) - new Date(a.date)
+
 const getBlogPosts = ({results}) => {
   return reduce((accum, post) => {
     accum.push(getBlogPost(post))
     return accum
-  }, [], results)
+  }, [], results).sort(sortByDateDesc)
 }
 
 const api = () => prismic.api(apiEndpoint)
@@ -87,7 +89,7 @@ app.get("/posts", function(req, res) {
   api().then(function(api) {
     return api.query(
       prismic.Predicates.at("document.type", "blog_post"),
-      { orderings : "[blog_post.date desc]" }
+      { orderings : "[document.first_publication_date desc]" }
     )
   })
   .then(responseHandler(res, (data) => getBlogPosts(data)))

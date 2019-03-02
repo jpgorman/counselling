@@ -18,7 +18,7 @@ export class Counselling extends React.Component {
 
 
             <SubHeader>What to Expect</SubHeader>
-            <Regular>If you feel you’d like to work with me, then please get in contact – We can arrange a telephone consultation free of charge, and if agreed, an initial consultation. This is a good opportunity for you to decide if you think we can work together.</Regular>
+            <Regular>If you feel you’d like to work with me, then please get in contact – We can arrange a telephone consultation free of charge, and if agreed, an initial face-to-face appointment. This is a good opportunity for you to decide if you think we can work together.</Regular>
             <Regular>Counselling appointments are typically held weekly at the same day and time for 50 minutes. We can arrange to work short term or open ended and review as we go on.</Regular>
 
 

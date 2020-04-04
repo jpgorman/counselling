@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
-  "engines": {
-    "node": "7.10.1"
-  },
   "scripts": {
     "test": "mocha",
     "serve": "resources/scripts/serve.sh",

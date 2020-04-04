@@ -15,8 +15,8 @@ export class About extends React.Component {
             <SubHeader>As a counsellor</SubHeader>
             <Regular>I am an <PageLink uri="http://www.counselling-directory.org.uk/integrative-therapy.html">integrative counsellor</PageLink>. This means that I use a number of different counselling techniques depending on what I feel is best for you as a person and the outcomes you wish for.</Regular>
             <Regular>I believe that therapy should be tailored to the individual, as no two people are the same and no single approach can be applied to every person.</Regular>
-            <Regular>I am a registered member of the British Association of Counsellors and Psychotherapists and abide by their code of ethics.</Regular>
-            <Regular>I am a feminist and am committed to reducing environmental impact where I can; I cycle to all appointments and use a Freephone.</Regular>
+            <Regular>I am an accredited, member of the British Association of Counsellors and Psychotherapists and abide by their code of ethics. I encourage body neutrality and am a HAES (Health at Every Size) practitioner.</Regular>
+            <Regular>I am an intersectional feminist and am committed to reducing environmental impact where I can; I also cycle to all appointments.</Regular>
             </VerticalSpacing>
           </Slat>
         <Divider />
@@ -45,6 +45,7 @@ export class About extends React.Component {
                 <li>Confidence issues and low self-esteem</li>
                 <li>Shame</li>
                 <li>Workplace stress - particularly in front line caring roles and the media industry</li>
+                <li>Body and image issues</li>
               </ul>
             </Regular>
             <SubHeader>Help with:</SubHeader>
@@ -69,7 +70,7 @@ export class About extends React.Component {
             <Header>Training and experience</Header>
 
             <SubHeader>Training</SubHeader>
-            <Regular>I have trained to be an integrative counsellor specialising in trauma and domestic violence. As well as regular continuing professional development, I have trained in the following:</Regular>
+            <Regular>I have trained to be an integrative counsellor specialising in trauma and domestic violence. I attained professional accreditation from the BACP in 2019. As well as regular continuing professional development, I have trained in the following:</Regular>
             <Regular>
               <ul>
                 <li>Professional Diploma in Counselling; University of the West of England, 2015 (BACP Accredited)</li>

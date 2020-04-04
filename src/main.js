@@ -9,7 +9,7 @@ import { createStore, applyMiddleware } from "redux"
 import { Router, Route, browserHistory, IndexRoute } from "react-router"
 
 import {fetchPosts, fetchPost} from "./action-creators"
-import {Home, About, Contact, Counselling, Posts, Post} from "./pages/"
+import {Home, About, Contact, Counselling, Posts, Post, Speaking} from "./pages/"
 import {hydrate, addCoreWrappers} from "./core"
 import {postsApp} from "./reducers"
 
@@ -48,6 +48,7 @@ ReactDOM.render((
             predicate: shouldFetchPosts,
             action: ({params}) => fetchPost(params.uid),
           })} />
+        <Route path="/speaking" component={addCoreWrappers(Speaking)}/>
         <Route path="/counselling" component={addCoreWrappers(Counselling)}/>
         <Route path="/contact" component={addCoreWrappers(Contact)}/>
       </Route>

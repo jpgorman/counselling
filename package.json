@@ -15,7 +15,7 @@
   "author": "Jean-Paul Gorman",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^3.11.1",
+    "eslint": "^4.18.2",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.7.1",
     "nodemon": "^1.11.0",

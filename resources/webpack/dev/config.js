@@ -1,4 +1,4 @@
-var path = require("path")
+vproductionar path = require("path")
 var webpack = require("webpack")
 var baseConfig = require("../config")
 

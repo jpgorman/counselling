@@ -3,7 +3,7 @@ import moment from "moment"
 import uuidV4 from "uuid/v4"
 import ReactHtmlParser from "html-react-parser"
 import {map, keys, last, split, partialRight, reduce, pick, pipe} from "ramda"
-import {Regular, Detail, SubHeader, Image, Thumbnail} from "../../components"
+import {Regular, Detail, SubHeader, Image, Thumbnail} from "../components"
 
 const getNameFromKey = key => last(split(".", key))
 
@@ -37,11 +37,19 @@ const contentTypeToComponentDictionary = {
     getComponent: () => Regular,
     renderer: renderStructuredTextAsHtml,
   },
+  "sections": {
+    getComponent: () => Regular,
+    renderer: renderStructuredTextAsHtml,
+  },
   "date": {
     getComponent: () => Detail,
     renderer: partialRight(renderTimestamp, ["Do MMMM YYYY"]),
   },
   "img": {
+    getComponent: () => Image,
+    renderer: renderImage,
+  },
+  "banner": {
     getComponent: () => Image,
     renderer: renderImage,
   },

@@ -1,6 +1,7 @@
 export {About} from "./about"
 export {Posts} from "./blog/posts"
 export {Post} from "./blog/post"
+export {Page} from "./page"
 export {Home} from "./home"
 export {Contact} from "./contact"
 export {Counselling} from "./counselling"

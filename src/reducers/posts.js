@@ -1,7 +1,5 @@
 import actions from "../actions"
 
-
-
 export function posts(state = {
   isFetching: false,
   entities: []

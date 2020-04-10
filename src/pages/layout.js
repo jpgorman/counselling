@@ -1,5 +1,5 @@
 import React, {PropTypes} from "react"
-import {Header, VerticalSpacing, Divider, Slat} from "../../components"
+import {Header, VerticalSpacing, Divider, Slat} from "../components"
 
 export function Layout({title, children}) {
   return (

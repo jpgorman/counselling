@@ -40,6 +40,14 @@ const htmlSerializer = (element, content) => {
   return null
 }
 
+const getPage = (page) => {
+  return ({
+  "uid": page.uid,
+  "page_template.title": page.getText("page_template.title"),
+  "page_template.banner": page.getImage("page_template.banner"),
+  "page_template.sections": page.getGroup("page_template.section").asHtml(() => null, htmlSerializer),
+})}
+
 const getBlogPost = (post) => ({
   "uid": post.uid,
   "blog_post.date": post.getTimestamp("blog_post.date"),
@@ -95,6 +103,16 @@ app.get("/posts/:uid", function(req, res) {
   })
   .then(responseHandler(res, (data) => getBlogPost(data)))
   .catch(errorHandler(res))
+})
+
+app.get("/page/:uid", function(req, res) {
+  const uid = req.params.uid
+  api().then(function(api) {
+    return api.getByUID("page_template", uid)
+  })
+  .then(responseHandler(res, (data) => getPage(data)))
+  .catch(errorHandler(res))
+  
 })
 
 app.get("*", function(req, res) {

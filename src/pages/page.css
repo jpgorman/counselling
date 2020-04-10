@@ -1,0 +1,25 @@
+.page h2 {
+  font: gettypography(header);
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-style: normal;
+  text-align: center;
+}
+
+.page h3 {
+  font: gettypography(subHeader);
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-style: normal;
+  text-align: left;
+}
+
+.page p,
+.page li 
+{
+  font: gettypography(regular);
+  text-decoration: none;
+  font-style: normal;
+}

@@ -2,8 +2,8 @@ import React, {PropTypes} from "react"
 import { connect } from "react-redux"
 import {find, propEq} from "ramda"
 import {VerticalSpacing, View} from "../../components"
-import {Layout} from "./layout"
-import {mapContentTypes} from "./map-content"
+import {Layout} from "../layout"
+import {mapContentTypes} from "../map-content"
 import styles from "./post.css"
 
 const mapStateToProps = ({posts}, props) => {
@@ -18,7 +18,7 @@ const mapStateToProps = ({posts}, props) => {
 function renderPost(post) {
   return mapContentTypes({
     data: post,
-    fields: ["title", "date", "img", "body"],
+    fields: ["date", "img", "body"],
   })
 }
 
@@ -27,7 +27,7 @@ class BlogPost extends React.Component {
   render() {
     const {post} = this.props
     return post ? (
-      <Layout title={post.title}>
+      <Layout title={post["blog_post.title"]}>
           <View className={styles.post}>
             <VerticalSpacing unit={3}>
               {renderPost(post)}

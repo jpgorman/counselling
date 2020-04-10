@@ -8,17 +8,17 @@ import { Provider } from "react-redux"
 import { createStore, applyMiddleware } from "redux"
 import { Router, Route, browserHistory, IndexRoute } from "react-router"
 
-import {fetchPosts, fetchPost} from "./action-creators"
-import {Home, About, Contact, Counselling, Posts, Post, Speaking} from "./pages/"
+import {fetchPosts, fetchPost, fetchPage} from "./action-creators"
+import {Home, About, Contact, Counselling, Page, Posts, Post, Speaking} from "./pages/"
 import {hydrate, addCoreWrappers} from "./core"
-import {postsApp} from "./reducers"
+import {reducers} from "./reducers"
 
 function logger() {
   return MODE === "DEV" ? createLogger() : () => next => action => next(action)
 }
 
 let store = createStore(
-  postsApp,
+  reducers,
   applyMiddleware(
     thunkMiddleware, // lets us dispatch() functions
     logger() // neat middleware that logs actions
@@ -47,6 +47,13 @@ ReactDOM.render((
           onEnter={hydrateRoute({
             predicate: shouldFetchPosts,
             action: ({params}) => fetchPost(params.uid),
+          })} />
+        <Route
+          path="/page/:uid"
+          component={addCoreWrappers(Page)}
+          onEnter={hydrateRoute({
+            predicate: () => true,
+            action: ({params}) => fetchPage(`page/${params.uid}`),
           })} />
         <Route path="/speaking" component={addCoreWrappers(Speaking)}/>
         <Route path="/counselling" component={addCoreWrappers(Counselling)}/>

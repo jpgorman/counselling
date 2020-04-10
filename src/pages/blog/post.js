@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react"
 import { connect } from "react-redux"
 import {find, propEq} from "ramda"
-import {VerticalSpacing, View} from "../../components"
+import {VerticalSpacing, View, asyncWrapper} from "../../components"
 import {Layout} from "../layout"
 import {mapContentTypes} from "../map-content"
 import styles from "./post.css"
@@ -42,4 +42,4 @@ BlogPost.propTypes = {
   post: PropTypes.object,
 }
 
-export const Post = connect(mapStateToProps)(BlogPost)
+export const Post = connect(mapStateToProps)(asyncWrapper(BlogPost))

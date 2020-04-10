@@ -7,6 +7,7 @@ import createLogger from "redux-logger"
 import { Provider } from "react-redux"
 import { createStore, applyMiddleware } from "redux"
 import { Router, Route, browserHistory, IndexRoute } from "react-router"
+import {find, propEq} from "ramda"
 
 import {fetchPosts, fetchPost, fetchPage} from "./action-creators"
 import {Home, About, Contact, Counselling, Page, Posts, Post, Speaking} from "./pages/"
@@ -27,6 +28,7 @@ let store = createStore(
 
 const hydrateRoute = hydrate(store)
 const shouldFetchPosts = ({posts}) => posts.entities.length === 0
+const shouldFetchPage = ({pages}, {params}) => !find(propEq("uid", params.uid))(pages.entities)
 
 ReactDOM.render((
   <Provider store={store}>
@@ -39,20 +41,20 @@ ReactDOM.render((
           component={addCoreWrappers(Posts)}
           onEnter={hydrateRoute({
             predicate: () => true,
-            action: fetchPosts,
+            action: () => fetchPosts('posts'),
           })} />
         <Route
           path="/blog/:uid"
           component={addCoreWrappers(Post)}
           onEnter={hydrateRoute({
             predicate: shouldFetchPosts,
-            action: ({params}) => fetchPost(params.uid),
+            action: ({params}) => fetchPosts(`posts/${params.uid}`),
           })} />
         <Route
           path="/page/:uid"
           component={addCoreWrappers(Page)}
           onEnter={hydrateRoute({
-            predicate: () => true,
+            predicate: shouldFetchPage,
             action: ({params}) => fetchPage(`page/${params.uid}`),
           })} />
         <Route path="/speaking" component={addCoreWrappers(Speaking)}/>

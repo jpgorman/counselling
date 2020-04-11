@@ -7,7 +7,7 @@ import {mapContentTypes} from "./map-content"
 import styles from "./page.css"
 
 const mapStateToProps = ({pages}, props) => {
-  const {uid} = props.params
+  const {uid ='home'} = props.params
   const page = find(propEq("uid", uid))(pages.entities)
   return {
     page,

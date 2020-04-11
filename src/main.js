@@ -34,8 +34,12 @@ ReactDOM.render((
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={(props) => props.children}>
-        <IndexRoute component={addCoreWrappers(Home)} />
-        <Route path="/about" component={addCoreWrappers(About)}/>
+        <IndexRoute
+          component={addCoreWrappers(Page)}
+          onEnter={hydrateRoute({
+            predicate: shouldFetchPage,
+            action: ({params}) => fetchPage(`page/home`),
+          })} />
         <Route
           path="/blog"
           component={addCoreWrappers(Posts)}
@@ -51,15 +55,12 @@ ReactDOM.render((
             action: ({params}) => fetchPosts(`posts/${params.uid}`),
           })} />
         <Route
-          path="/page/:uid"
+          path="/:uid"
           component={addCoreWrappers(Page)}
           onEnter={hydrateRoute({
             predicate: shouldFetchPage,
             action: ({params}) => fetchPage(`page/${params.uid}`),
           })} />
-        <Route path="/speaking" component={addCoreWrappers(Speaking)}/>
-        <Route path="/counselling" component={addCoreWrappers(Counselling)}/>
-        <Route path="/contact" component={addCoreWrappers(Contact)}/>
       </Route>
     </Router>
   </Provider>

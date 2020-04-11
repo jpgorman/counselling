@@ -10,7 +10,7 @@ import { Router, Route, browserHistory, IndexRoute } from "react-router"
 import {find, propEq} from "ramda"
 
 import {fetchPosts, fetchPost, fetchPage} from "./action-creators"
-import {Home, About, Contact, Counselling, Page, Posts, Post, Speaking} from "./pages/"
+import {Page, Posts, Post} from "./pages/"
 import {hydrate, addCoreWrappers} from "./core"
 import {reducers} from "./reducers"
 
@@ -28,7 +28,7 @@ let store = createStore(
 
 const hydrateRoute = hydrate(store)
 const shouldFetchPosts = ({posts}) => posts.entities.length === 0
-const shouldFetchPage = ({pages}, {params}) => !find(propEq("uid", params.uid))(pages.entities)
+const shouldFetchPage = ({pages}, {params}) => !find(propEq("uid", params.uid || 'home'))(pages.entities)
 
 ReactDOM.render((
   <Provider store={store}>

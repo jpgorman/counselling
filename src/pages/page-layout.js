@@ -1,21 +1,22 @@
 import React, {PropTypes} from "react"
 import {Header, VerticalSpacing, Divider, Slat} from "../components"
 
-export function Layout({title, children}) {
+export function PageLayout({title, banner, children}) {
   return (
     <VerticalSpacing unit={10}>
         <Slat>
           <VerticalSpacing unit={3}>
-            <Header>{title}</Header>
-            {children}
+            {title && <Header>{title}</Header>}
+            {banner}
           </VerticalSpacing>
         </Slat>
-      <Divider />
+        <Divider />
+        {children}
     </VerticalSpacing>
   )
 }
 
-Layout.propTypes = {
+PageLayout.propTypes = {
   title: PropTypes.string,
   children: PropTypes.any,
 }

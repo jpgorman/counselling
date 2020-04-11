@@ -2,7 +2,7 @@ import React, {PropTypes} from "react"
 import { connect } from "react-redux"
 import {find, propEq} from "ramda"
 import {VerticalSpacing, View, asyncWrapper} from "../components"
-import {Layout} from "./layout"
+import {PageLayout} from "./page-layout"
 import {mapContentTypes} from "./map-content"
 import styles from "./page.css"
 
@@ -19,7 +19,14 @@ const mapStateToProps = ({pages}, props) => {
 function renderPage(page) {
   return mapContentTypes({
     data: page,
-    fields: [ "banner", "sections"],
+    fields: [ "sections"],
+  })
+}
+
+function renderImage(page){
+  return mapContentTypes({
+    data: page,
+    fields: [ "banner"],
   })
 }
 
@@ -27,14 +34,15 @@ class Wrapper extends React.Component {
 
   render() {
     const {page} = this.props
+    const banner = renderImage(page)
     return page ? (
-      <Layout title={page["page_template.title"]}>
+      <PageLayout 
+        title={page["page_template.title"]} 
+        banner={banner}>
           <View className={styles.page}>
-            <VerticalSpacing unit={3}>
               {renderPage(page)}
-            </VerticalSpacing>
           </View>
-      </Layout>
+      </PageLayout>
     ) : null
   }
 }

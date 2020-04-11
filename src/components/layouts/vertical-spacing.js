@@ -6,7 +6,9 @@ import postCssFunctions from "../../../resources/postcss-functions"
 const {baseunits} = postCssFunctions(theme)
 
 function addSpacerAfterEach(children, unit) {
-  return React.Children.map(children, (child) => <View key={"spaceAfter"} style={{marginBottom: unit}}>{child}</View>)
+  return React.Children.map(children, (child) => {
+    return child != null && <View key={"spaceAfter"} style={{marginBottom: unit}}>{child}</View>
+  })
 }
 
 export function VerticalSpacing({children, unit}) {

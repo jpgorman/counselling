@@ -30,11 +30,13 @@
   align-items: center;
   flex-direction: column;
 }
+.page section[data-field="map"],
 .page section[data-field="content"] {
   margin-bottom: baseunits(10);
   padding-bottom: baseunits(7);
 }
 
+.page section[data-field="map"]::after,
 .page section[data-field="content"]::after {
   position: absolute;
   left: 0;
@@ -52,6 +54,10 @@
 
 .page section[data-field="content"] > * {
   width: 70%;
+  margin: 0 auto baseunits(3);
+}
+.page section[data-field="map"] > * {
+  width: 100%;
   margin: 0 auto baseunits(3);
 }
 

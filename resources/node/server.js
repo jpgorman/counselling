@@ -46,6 +46,7 @@ const getPage = (page) => {
   "page_template.title": page.getText("page_template.title"),
   "page_template.banner": page.getImage("page_template.banner"),
   "page_template.sections": page.getGroup("page_template.section").asHtml(() => null, htmlSerializer),
+  "page_template.map_url": page.getLink("page_template.map_url"),
 })}
 
 const getBlogPost = (post) => ({

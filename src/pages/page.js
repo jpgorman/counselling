@@ -19,7 +19,7 @@ const mapStateToProps = ({pages}, props) => {
 function renderPage(page) {
   return mapContentTypes({
     data: page,
-    fields: [ "sections"],
+    fields: [ "sections", "map_url"],
   })
 }
 

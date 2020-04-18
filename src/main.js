@@ -7,18 +7,19 @@ import createLogger from "redux-logger"
 import { Provider } from "react-redux"
 import { createStore, applyMiddleware } from "redux"
 import { Router, Route, browserHistory, IndexRoute } from "react-router"
+import {find, propEq} from "ramda"
 
-import {fetchPosts, fetchPost} from "./action-creators"
-import {Home, About, Contact, Counselling, Posts, Post, Speaking} from "./pages/"
+import {fetchPosts, fetchPost, fetchPage} from "./action-creators"
+import {Page, Posts, Post} from "./pages/"
 import {hydrate, addCoreWrappers} from "./core"
-import {postsApp} from "./reducers"
+import {reducers} from "./reducers"
 
 function logger() {
   return MODE === "DEV" ? createLogger() : () => next => action => next(action)
 }
 
 let store = createStore(
-  postsApp,
+  reducers,
   applyMiddleware(
     thunkMiddleware, // lets us dispatch() functions
     logger() // neat middleware that logs actions
@@ -27,30 +28,39 @@ let store = createStore(
 
 const hydrateRoute = hydrate(store)
 const shouldFetchPosts = ({posts}) => posts.entities.length === 0
+const shouldFetchPage = ({pages}, {params}) => !find(propEq("uid", params.uid || 'home'))(pages.entities)
 
 ReactDOM.render((
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={(props) => props.children}>
-        <IndexRoute component={addCoreWrappers(Home)} />
-        <Route path="/about" component={addCoreWrappers(About)}/>
+        <IndexRoute
+          component={addCoreWrappers(Page)}
+          onEnter={hydrateRoute({
+            predicate: shouldFetchPage,
+            action: ({params}) => fetchPage(`page/home`),
+          })} />
         <Route
           path="/blog"
           component={addCoreWrappers(Posts)}
           onEnter={hydrateRoute({
             predicate: () => true,
-            action: fetchPosts,
+            action: () => fetchPosts('posts'),
           })} />
         <Route
           path="/blog/:uid"
           component={addCoreWrappers(Post)}
           onEnter={hydrateRoute({
             predicate: shouldFetchPosts,
-            action: ({params}) => fetchPost(params.uid),
+            action: ({params}) => fetchPosts(`posts/${params.uid}`),
           })} />
-        <Route path="/speaking" component={addCoreWrappers(Speaking)}/>
-        <Route path="/counselling" component={addCoreWrappers(Counselling)}/>
-        <Route path="/contact" component={addCoreWrappers(Contact)}/>
+        <Route
+          path="/:uid"
+          component={addCoreWrappers(Page)}
+          onEnter={hydrateRoute({
+            predicate: shouldFetchPage,
+            action: ({params}) => fetchPage(`page/${params.uid}`),
+          })} />
       </Route>
     </Router>
   </Provider>

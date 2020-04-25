@@ -1,6 +1,9 @@
 import {combineReducers} from "redux"
 import {posts} from "./posts"
+import {pages} from "./pages"
 
-export const postsApp = combineReducers({
+export const reducers  = combineReducers({
   posts,
+  pages
 })
+

@@ -2,9 +2,9 @@ import React, {PropTypes} from "react"
 import { connect } from "react-redux"
 import {map, append, length} from "ramda"
 
-import {Layout} from "./layout"
+import {Layout} from "../layout"
 import {PageLink, Flex, View, asyncWrapper} from "../../components"
-import {mapContentTypes} from "./map-content"
+import {mapContentTypes} from "../map-content"
 import styles from "./posts.css"
 
 const mapStateToProps = ({posts}) => {

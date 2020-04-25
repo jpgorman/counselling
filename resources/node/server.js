@@ -1,7 +1,5 @@
 /*eslint-disable no-console */
-const config = require("config")
 const {reduce} = require("ramda")
-const {apiEndpoint} = config
 const prismic = require("prismic.io")
 const express = require("express")
 const path = require("path")
@@ -9,17 +7,13 @@ const open = require("open")
 const compression = require("compression")
 const helmet = require("helmet")
 const session = require("cookie-session")
-const Logger = require("le_node")
 
 const allowCrossDomain = require("./middleware/allow-cross-domain")
 
-const logger = new Logger({
-  token: config.logToken,
-})
-
 const expiryDate = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
-const port = process.env.PORT || config.port
-const host = process.env.HOST || config.host
+const port = process.env.PORT
+const host = process.env.HOST
+const apiEndPoint = process.env.apiEndPoint
 const app = express()
 
 const errorMap = {
@@ -28,7 +22,6 @@ const errorMap = {
 }
 
 const errorHandler = (res) => (err) => {
-  logger.log("err", err)
   res.status(err.status).send(errorMap[err.status] || errorMap[500])
 }
 
@@ -46,6 +39,15 @@ const htmlSerializer = (element, content) => {
   // Return null to stick with the default behavior
   return null
 }
+
+const getPage = (page) => {
+  return ({
+  "uid": page.uid,
+  "page_template.title": page.getText("page_template.title"),
+  "page_template.banner": page.getImage("page_template.banner"),
+  "page_template.sections": page.getGroup("page_template.section").asHtml(() => null, htmlSerializer),
+  "page_template.map_url": page.getLink("page_template.map_url"),
+})}
 
 const getBlogPost = (post) => ({
   "uid": post.uid,
@@ -66,7 +68,7 @@ const getBlogPosts = ({results}) => {
   }, [], results).sort(sortByDateDesc)
 }
 
-const api = () => prismic.api(apiEndpoint)
+const api = () => prismic.api(apiEndPoint)
 app.use(session({
   name: "session",
   keys: ["key1"],
@@ -85,7 +87,6 @@ app.use(express.static("public"))
 app.use(allowCrossDomain)
 
 app.get("/posts", function(req, res) {
-  logger.log("info", {route: "/posts"})
   api().then(function(api) {
     return api.query(
       prismic.Predicates.at("document.type", "blog_post"),
@@ -98,12 +99,21 @@ app.get("/posts", function(req, res) {
 
 app.get("/posts/:uid", function(req, res) {
   const uid = req.params.uid
-  logger.log("info", {route: `/posts/${uid}`})
   api().then(function(api) {
     return api.getByUID("blog_post", uid)
   })
   .then(responseHandler(res, (data) => getBlogPost(data)))
   .catch(errorHandler(res))
+})
+
+app.get("/page/:uid", function(req, res) {
+  const uid = req.params.uid
+  api().then(function(api) {
+    return api.getByUID("page_template", uid)
+  })
+  .then(responseHandler(res, (data) => getPage(data)))
+  .catch(errorHandler(res))
+  
 })
 
 app.get("*", function(req, res) {
@@ -116,13 +126,7 @@ app.get("*", function(req, res) {
 })
 
 app.listen(port, function(err) {
-  if (err) {
-    logger.log("err", err)
-  } else {
-    logger.log("info", {
-      host,
-      port,
-    })
+  if (!err) {
     open(`${host}:${port}`)
   }
 })

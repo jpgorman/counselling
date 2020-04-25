@@ -3,7 +3,7 @@ import moment from "moment"
 import uuidV4 from "uuid/v4"
 import ReactHtmlParser from "html-react-parser"
 import {map, keys, last, split, partialRight, reduce, pick, pipe} from "ramda"
-import {Regular, Detail, SubHeader, Image, Thumbnail} from "../../components"
+import {Regular, Detail, SubHeader, Image, Thumbnail, Map} from "../components"
 
 const getNameFromKey = key => last(split(".", key))
 
@@ -24,6 +24,13 @@ function renderImage(key, Component, {main}) {
   return <Component key={`${key}-${uuidV4()}`} src={url} dimensions={dimensions} />
 }
 
+function renderMap(key, Component, data) {
+  if(data) {
+  const {url} = data.value
+  return <Component key={`${key}-${uuidV4()}`} src={url} />
+  }
+}
+
 const contentTypeToComponentDictionary = {
   "title": {
     getComponent: () => SubHeader,
@@ -37,6 +44,10 @@ const contentTypeToComponentDictionary = {
     getComponent: () => Regular,
     renderer: renderStructuredTextAsHtml,
   },
+  "sections": {
+    getComponent: () => Regular,
+    renderer: renderStructuredTextAsHtml,
+  },
   "date": {
     getComponent: () => Detail,
     renderer: partialRight(renderTimestamp, ["Do MMMM YYYY"]),
@@ -45,10 +56,18 @@ const contentTypeToComponentDictionary = {
     getComponent: () => Image,
     renderer: renderImage,
   },
+  "banner": {
+    getComponent: () => Image,
+    renderer: renderImage,
+  },
   "thumbnail": {
     getComponent: () => Thumbnail,
     renderer: renderImage,
   },
+  "map_url": {
+    getComponent: () => Map,
+    renderer: renderMap,
+  }
 }
 
 function normaliseFieldNames(data) {

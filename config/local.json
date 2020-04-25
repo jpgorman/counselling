@@ -1,7 +1,0 @@
-{
-  "isDev": true,
-  "host": "localhost",
-  "port": 5000,
-  "logToken": "7a0fd13c-1e8a-4425-b325-beed1b0b401f",
-  "apiEndpoint": "https://catchappell.prismic.io/api"
-}

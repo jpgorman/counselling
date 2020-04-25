@@ -6,5 +6,3 @@ export const posts = createReducer({
   SUCCESS: actions.GET_POSTS_SUCCESS,
   ERROR: actions.GET_POSTS_ERROR,
 })
-
-

@@ -15,6 +15,10 @@ export const menuSpec = {
     label: "Speaking",
     route: "/speaking",
   },
+  workshops: {
+    label: "Workshops",
+    route: "/workshops",
+  },
   counselling: {
     label: "Counselling",
     route: "/counselling",

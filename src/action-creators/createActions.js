@@ -27,7 +27,7 @@ export default function (fetch, {SUCCESS, ERROR, REQUEST}) {
     fetchData(uri) {
       return dispatch => {
         dispatch(actionCreators.request())
-        return fetch(`http://${host}:${port}/${uri}`)
+        return fetch(`https://${host}:${port}/${uri}`)
           .then(response => response.json())
           .then(data => dispatch(actionCreators.dispatch(data)))
           .catch((err) => dispatch(actionCreators.failed(err)))
